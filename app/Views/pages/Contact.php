@@ -90,7 +90,7 @@
         display: block;
         width: 60px;
         height: 4px;
-        background: #FFD230;
+        background: #F6C90E;
         border-radius: 10px;
         margin: 10px auto 20px;
     }
@@ -146,7 +146,7 @@
     .send-btn {
         display: block;
         margin: 25px auto 0;
-        background: #FFD230;
+        background: #F6C90E;
         color: #000;
         font-weight: 600;
         padding: 10px 30px;
