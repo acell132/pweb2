@@ -454,7 +454,7 @@
         <i class="fa-solid fa-user"></i>  
         Login</button>
        <button class="signup" onclick="window.location.href='<?= base_url('register'); ?>'">
-          `Register
+          Register
        </button>
 
       </div>

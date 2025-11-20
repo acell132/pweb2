@@ -76,149 +76,143 @@
     }
 
     
-    /* ===== HERO SECTION ===== */
-.hero-build {
-    position: relative;
-    width: 100%;
-    height: 60vh;
-    background: url('/assets/img/build-hero.jpg') center/cover no-repeat; /* ganti sesuai gambar */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-}
-
-.hero-build .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-}
-
-.hero-build .content {
-    position: relative;
-    text-align: center;
-    max-width: 700px;
-    padding: 20px;
-}
-
-.hero-build h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #f1c40f;
-}
-
-.hero-build p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* ===== BUILD DETAIL SECTION ===== */
-.build-detail {
-    padding: 70px 0;
-    background: #f7f7f7;
-}
-
-.build-detail .container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    text-align: center;
-}
-
-.build-detail h2 {
-    font-size: 32px;
-    margin-bottom: 40px;
-    font-weight: 700;
-}
-
-.build-detail .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.build-detail .card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: 0.3s;
-}
-
-.build-detail .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-}
-
-.build-detail .card i {
-    font-size: 40px;
-    color: #f1c40f;
-    margin-bottom: 15px;
-}
-
-.build-detail .card h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.build-detail .card p {
-    color: #444;
-    line-height: 1.6;
-}
-
-/* ===== CTA SECTION ===== */
-.cta {
-    background: #1f2937; /* dark gray */
-    color: #fff;
-    padding: 70px 0;
-    text-align: center;
-}
-
-.cta .container {
-    width: 90%;
-    max-width: 900px;
-    margin: auto;
-}
-
-.cta h2 {
-    font-size: 32px;
-    margin-bottom: 15px;
-}
-
-.cta p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-.btn-primary {
-    padding: 12px 30px;
-    background: #f1c40f;
-    color: #000;
-    font-weight: 600;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-.btn-primary:hover {
-    background: #ddb10d;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    .hero-build h1 {
-        font-size: 36px;
+   
+    
+    /* ========== HERO SECTION ========== */
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
     }
 
-    .hero-build p {
-        font-size: 16px;
+    .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
     }
-}
 
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: #eab308;
+        line-height: 1.3;
+    }
+
+    .hero-content p {
+        margin-top: 12px;
+        font-size: 1rem;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-content .btn-hero {
+        margin-top: 20px;
+        padding: 10px 28px;
+        background: #eab308;
+        border-radius: 6px;
+        font-weight: 600;
+        display: inline-block;
+        color: #000;
+    }
+
+    /* ========== SECTION LAYANAN (BUILD & STYLE) ========== */
+    .services-section {
+        background: #1f2937;
+        padding: 60px 0;
+    }
+
+    .services-wrapper {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .service-card {
+        width: 420px;
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        min-height: 220px;
+        border: 4px solid transparent;
+    }
+
+    .service-card.yellow-border {
+        border-color: #eab308;
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem;
+        margin-top: 8px;
+    }
+
+    .service-card p {
+        margin-top: 10px;
+        color: #444;
+    }
+
+    .learn-more {
+        margin-top: 18px;
+        font-weight: bold;
+        display: inline-block;
+        color: #000;
+    }
+
+    /* ICON STYLE */
+    .card-icon {
+        width: 43px;
+        height: 43px;
+        border-radius: 8px;
+        background: #eab308;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #000;
+        font-size: 1.3rem;
+    }
+
+    /* ========== ABOUT SECTION ========== */
+    .about-section {
+        background: #374151;
+        padding: 70px 0;
+        text-align: center;
+        color: #e5e7eb;
+    }
+
+    .about-section h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .about-underline {
+        width: 60px;
+        height: 4px;
+        background: #eab308;
+        margin: 10px auto 25px;
+    }
+
+    .about-section p {
+        width: 70%;
+        margin: auto;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
 
 
     /* FOOTER */
@@ -326,51 +320,69 @@
     </div>
 </nav>
 
-
-
-
-<section class="hero-build">
-<div class="overlay"></div>
-<div class="content">
-<h1>Build</h1>
-<p>Layanan konstruksi profesional dengan standar kualitas tinggi untuk bangunan hunian, komersial, dan proyek besar.</p>
-</div>
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Bangun Masa Depan<br>Bersama Kami</h1>
+        <p>
+            Solusi lengkap untuk kebutuhan konstruksi, renovasi, dan bahan bangunan
+            berkualitas tinggi dengan layanan profesional terpercaya.
+        </p>
+        <a href="#" class="btn-hero">Mulai Sekarang</a>
+    </div>
 </section>
 
+<!-- ================ SERVICES (BUILD & STYLE) ================= -->
+<section class="services-section">
+    <div class="services-wrapper">
 
-<section class="build-detail">
-<div class="container">
-<h2>Apa yang Kami Tawarkan</h2>
-<div class="grid">
-<div class="card">
-<i class="fa-solid fa-wrench"></i>
-<h3>Konstruksi Bangunan</h3>
-<p>Pembangunan struktur bangunan kuat, aman, dan tahan lama sesuai standar industri.</p>
-</div>
-<div class="card">
-<i class="fa-solid fa-pencil-ruler"></i>
-<h3>Renovasi</h3>
-<p>Perbaikan dan renovasi ruang agar menjadi lebih modern, fungsional, dan nyaman.</p>
-</div>
-<div class="card">
-<i class="fa-solid fa-helmet-safety"></i>
-<h3>Manajemen Proyek</h3>
-<p>Pengelolaan konstruksi dengan perencanaan matang untuk hasil tepat waktu dan efisien.</p>
-</div>
-</div>
-</div>
+        <!-- BUILD CARD -->
+        <div class="service-card">
+            <div class="card-icon">
+                <i class="fa-solid fa-hammer"></i>
+            </div>
+            <h3>Build</h3>
+            <p>
+                Layanan konstruksi dan pembangunan profesional dengan standar kualitas tinggi.
+                Dari rumah tinggal hingga proyek komersial besar.
+            </p>
+            <a href="#" class="learn-more">Learn More →</a>
+        </div>
+
+        <!-- STYLE CARD -->
+        <div class="service-card yellow-border">
+            <div class="card-icon">
+                <i class="fa-solid fa-palette"></i>
+            </div>
+            <h3>Style</h3>
+            <p>
+                Desain interior dan eksterior yang memadukan estetika modern dan fungsionalitas
+                optimal untuk menciptakan ruang impian Anda.
+            </p>
+            <a href="#" class="learn-more">Learn More →</a>
+        </div>
+
+    </div>
 </section>
 
+<!-- ================= ABOUT SECTION ================= -->
+<section class="about-section">
+    <h2>About</h2>
+    <div class="about-underline"></div>
 
-<section class="cta">
-<div class="container">
-<h2>Ingin Memulai Proyek?</h2>
-<p>Hubungi kami untuk konsultasi gratis dan penawaran terbaik sesuai kebutuhan Anda.</p>
-<a href="/contact" class="btn-primary">Hubungi Kami</a>
-</div>
+    <p>
+        Bangun Bangsa adalah perusahaan konstruksi dan toko bahan bangunan terpercaya yang telah
+        melayani ribuan proyek dengan komitmen pada kualitas, ketepatan waktu, dan kepuasan
+        pelanggan. Kami menyediakan solusi lengkap mulai dari bahan bangunan berkualitas,
+        jasa renovasi profesional, hingga perlengkapan kerja dan safety gear untuk memastikan proyek
+        berjalan aman dan sukses.
+    </p>
+
+    <p>
+        Dengan pengalaman bertahun-tahun dan tim profesional kompeten, kami siap mewujudkan
+        visi konstruksi Anda dengan standar internasional dan harga kompetitif.
+    </p>
 </section>
-
-
 
 <!-- FOOTER -->
 <footer>
