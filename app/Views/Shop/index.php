@@ -1,553 +1,423 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bangun Bangsa - Contact</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bangun Bangsa - Shop Mockup</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
+  <style>
+    :root{
+      --bg:#323a3f;
+      --panel:#2f3a40;
+      --muted:#8b9498;
+      --accent:#f3c213; /* yellow */
+      --card:#3a4448;
+      --radius:10px;
+      --glass: rgba(255,255,255,0.03);
     }
 
-    body {
-        background: #2E363F;
-        color: #EDEDED;
-        line-height: 1.6;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg), #2c3438);
+      color:#e6eef2;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
     }
 
-    section.hero {
-      position: relative;
-      width: 100%;
-      height: 580px;  /* Tinggi area hero */
-      overflow: hidden;
-      background: #2D2F36;
+    /* Container */
+    .wrap{
+      /* max-width:1200px; */
+      /* margin:20px auto; */
+      padding:0 20px 80px;
     }
 
-    /* Gambar Shape */
-    section.hero img.logo {
-      position: absolute;
-      left: 0;
-      top: -40px; 
-      width: auto;     /* perbesar sesuai example */
-      height: 620px;
-      z-index: 1;
-      user-select: none;
-      pointer-events: none;
+    /* Top navigation */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      background
+    }
+    .logo{
+      width:46px;height:46px;border-radius:8px;
+      background:linear-gradient(135deg,#4a5a6a,#2f8bdc);
+      display:flex;align-items:center;justify-content:center;font-weight:800;
+      box-shadow:0 2px 0 rgba(0,0,0,0.25);
+    }
+    nav{
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+    nav a{color:#dce7eb;text-decoration:none;font-weight:600;opacity:.95}
+    .search{
+      display:flex;align-items:center;
+      background:var(--glass);padding:8px 12px;border-radius:26px;
+      gap:8px;width:300px;
+    }
+    .search input{
+      background:transparent;border:0;outline:0;color:#fff;font-size:14px;width:100%;
     }
 
-    /* Text di atas shape */
-    section.hero .text-content {
-      position: absolute;
-      top: 80px;         /* geser turun */
-      left: 360px;        /* geser ke kanan agar pas */
-      z-index: 3;
-      max-width: 700px;
+    /* Hero */
+    .hero{
+      margin-top:8px;
+      border-radius:12px;
+      overflow:hidden;
+      position:relative;
+      min-height:260px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .hero .bg{
+      position:absolute;inset:0;
+      background-image: url('/mnt/data/2c6b9dfb-464b-499a-b3a7-d3e9dea7ea61.png');
+      background-size:cover;
+      background-position:center;
+      filter:brightness(.45) contrast(.95);
+      transform:scale(1.02);
+    }
+    .hero .content{
+      position:relative;text-align:center;padding:40px 24px;
+    }
+    .hero h1{font-size:36px;margin:0 0 10px;font-weight:800;letter-spacing:-0.5px}
+    .hero p{margin:0 0 18px;color:var(--muted);font-weight:500}
+    .btn-primary{
+      background:var(--accent);color:#222;padding:10px 18px;border-radius:8px;font-weight:700;border:0;
+      box-shadow:0 6px 18px rgba(0,0,0,0.35);cursor:pointer;
     }
 
-    /* Judul */
-    section.hero h1 {
-      font-weight: 900;
-      font-size: 62px;
-      line-height: 1.2;
-      color: #EEE;
-      margin-bottom: 45px;
+    /* Filters area */
+    .filters{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+      padding:14px;border-radius:8px;
+    }
+    .filters .left{display:flex;gap:10px;align-items:center}
+    .select{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:#fff;
     }
 
-    section.hero h1 .highlight {
-      color: #F7C600;
+    /* promo */
+    .promo{
+      margin-top:14px;
+      background:var(--accent);
+      color:#222;
+      padding:10px 14px;
+      border-radius:6px;
+      text-align:center;font-weight:700;
     }
 
-    section.hero p {
-      color: #AAA;
-      font-size: 16px;
-      max-width: 600px;
-      margin-bottom: 35px;
-      text-align: center;
-      margin-left: 100px;
+    /* products grid */
+    .grid{
+      margin-top:20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+      gap:20px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 6px 14px rgba(0,0,0,0.45), inset 0 1px rgba(255,255,255,0.02);
+      display:flex;flex-direction:column;
+    }
+    .card .thumb{
+      height:140px;background-image:url('/mnt/data/2c6b9dfb-464b-499a-b3a7-d3e9dea7ea61.png');
+      background-position:center;background-size:cover;
+    }
+    .card .body{
+      padding:14px;
+      display:flex;flex-direction:column;gap:12px;flex:1;
+    }
+    .card h3{margin:0;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:13px}
+    .card .meta{
+      display:flex;align-items:center;justify-content:space-between;margin-top:auto;
+    }
+    .price{font-weight:800;font-size:18px}
+    .add{
+      background:var(--accent);border:0;padding:8px 12px;border-radius:8px;font-weight:700;color:#222;cursor:pointer;
     }
 
-    /* Tombol */
-    section.hero .btn-primary {
-      margin-left: 200px;
+    /* pagination */
+    .pagination{
+      margin-top:26px;display:flex;gap:8px;justify-content:center;align-items:center;
     }
-
-    section.hero .btn-primary,
-    section.hero .btn-secondary {
-      display: inline-flex;
-      min-width: 180px;
-      justify-content: center;
-      gap: 8px;
-      text-align: center;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 18px 25px;
-      border-radius: 6px;
-      margin-right: 15px;
+    .page{
+      width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.03);display:flex;
+      align-items:center;justify-content:center;color:#dbe8ec;font-weight:700;cursor:pointer;
     }
+    .page.active{background:var(--accent);color:#222}
 
-    section.hero .btn-primary {
-      background: #F7C600;
-      color: #2D2F36;
-      border: none;
+    /* footer */
+    footer{
+      margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.03);
+      color:var(--muted);
     }
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px;padding-top:20px}
+    .footer-grid h4{margin:0 0 12px;color:#fff}
+    .contact .logo-small{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,#4a5a6a,#2f8bdc);display:inline-block;margin-bottom:12px}
 
-    section.hero .btn-secondary {
-      background: transparent;
-      border: 2px solid #F7C600;
-      color: #F7C600;
+    /* small screens */
+    @media (max-width:880px){
+      .wrap{padding:0 16px}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .hero h1{font-size:28px}
     }
-
-    /* NAVBAR */
-    nav {
-        background: #3A4750;
-        box-shadow: 0 0 20px rgba(0,0,0,0.3);
-        padding: 12px 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid #3A434E;
+    @media (max-width:520px){
+      nav{display:none}
+      .search{width:100%}
+      .hero{min-height:220px}
+      .footer-grid{grid-template-columns:1fr}
     }
-
-    nav .left {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-    }
-    nav .left span{
-        padding: 10px;
-    }
-
-    nav img {
-        width: 40px;
-    }
-
-    nav ul {
-        display: flex;
-        gap: 35px;
-        list-style: none;
-    }
-
-    nav ul li a {
-        color: #EDEDED;
-        font-size: 14px;
-        text-decoration: none;
-    }
-
-    nav .search {
-        background: #fff;
-        padding: 6px 12px;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        width: 350px;
-        height: 40px;
-        flex-direction: row-reverse;  /* ⬅ ikon pindah ke kanan */
-    }
-
-    nav .search input {
-        border: none;
-        outline: none;
-        width: 100%;
-    }
-
-    /* TITLE */
-    .title {
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    .title h1 {
-        font-size: 34px;
-        font-weight: 700;
-    }
-
-    .title span {
-        display: block;
-        width: 60px;
-        height: 4px;
-        background: #FFD230;
-        border-radius: 10px;
-        margin: 10px auto 20px;
-    }
-
-    .title p {
-        width: 40%;
-        margin: auto;
-        color: #C8C8C8;
-    }
-
-    /* FORM CARD */
-    .form-card {
-        background: #232B34;
-        width: 65%;
-        margin: 40px auto;
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 0 25px rgba(0,0,0,0.4);
-    }
-
-    .form-row {
-        display: flex;
-        gap: 25px;
-        margin-bottom: 25px;
-    }
-
-    .form-group {
-        flex: 1;
-    }
-
-    label {
-        font-size: 13px;
-        font-weight: 600;
-        color: #B8B8B8;
-    }
-
-    input, textarea {
-        width: 100%;
-        margin-top: 5px;
-        padding: 10px;
-        background: transparent;
-        border: none;
-        border-bottom: 1px solid #4A535C;
-        color: #FFF;
-        outline: none;
-    }
-
-    textarea {
-        height: 100px;
-        resize: none;
-    }
-
-    .send-btn {
-        display: block;
-        margin: 25px auto 0;
-        background: #FFD230;
-        color: #000;
-        font-weight: 600;
-        padding: 10px 30px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-    }
-
-    /* CONTACT CARDS */
-    .contact-section {
-        text-align: center;
-        margin-top: 60px;
-    }
-
-    .contact-cards {
-        margin-top: 35px;
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-    }
-
-    .card {
-        background: #232B34;
-        padding: 30px;
-        width: 260px;
-        border-radius: 12px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
-
-    .card .icon {
-        background: rgba(246, 201, 14, 0.2);
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #000;
-        font-size: 20px;
-        margin-bottom: 12px;
-    }
-
-    .card .icon i {
-        color: #F6C90E;
-    }
-
-
-    .contact-section h2 {
-        font-size: 22px;
-        font-weight: 700;
-    }
-
-    /* FOLLOW US */
-    .follow {
-        text-align: center;
-        margin: 100px 0 30px;
-    }
-
-    .follow .icons {
-        margin-top: 15px;
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-    }
-
-    .follow .icons i {
-        font-size: 22px;
-        background: #3A434E;
-        padding: 10px;
-        border-radius: 50%;
-    }
-
-    /* FOOTER */
-
-    footer {
-        background: #303841;
-        padding: 50px 60px;
-        display: grid;
-        grid-template-columns: 1.6fr 1fr 1fr 1fr;
-        gap: 50px;
-        
-    }
-
-    footer h3 {
-        margin-bottom: 15px;
-        font-size: 16px;
-    }
-
-    footer ul {
-        list-style: none;
-        line-height: 30px;
-        font-size: 14px;
-        color: #C8C8C8;
-    }
-
-    footer .brand {
-        display: flex;
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    footer .brand img {
-        width: 50px;
-    }
-
-    footer .brand .brand-text {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-    footer .brand .brand-text .info{
-        margin-left: -60px;
-        margin-top: 10px;
-    }
-
-
-    footer .brand p {
-        margin: 5px 0;
-        color: #C8C8C8;
-        font-size: 14px;
-    }
-
-    footer .brand .icon {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin: 6px 0;
-    }
-
-    .footer-end {
-        display: flex;
-        justify-content: space-between; 
-        align-items: center;
-        padding: 10px 20px;   /* tambahkan padding kiri & kanan */
-        width: 100%;          /* biar melebar full ke kiri–kanan */
-        grid-column: 1 / -1;
-        border-top: 1px solid #4A535C;
-    }
-
-    .footer-end .social {
-        gap: 40px;
-    }
-
-    .footer-bottom {
-        font-size: 14px;
-        color: #C8C8C8;
-        text-align: right;    /* jaga-jaga kalau multiline */
-    }
-
-
-    
-
-</style>
+  </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav>
-    <div class="left">
-        <span>Bangun Bangsa</span>
-    </div>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">B</div>
+        <div>
+          <div style="font-weight:800">Bangun Bangsa</div>
+          <div style="font-size:12px;color:var(--muted)">Premium Construction Materials</div>
+        </div>
+      </div>
 
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Build</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Build</a>
+        <a href="#">Shop</a>
+        <a href="#">Contact</a>
+      </nav>
 
-    <div class="search">
-        <i class="fa fa-search"></i>
-        <input type="text" placeholder="Search...">
-    </div>
-</nav>
+      <div style="display:flex;gap:12px;align-items:center;width:360px;max-width:40%">
+        <div class="search" aria-label="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:.9" xmlns="http://www.w3.org/2000/svg"><path d="M21 21L16.65 16.65" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <input placeholder="Search..." />
+        </div>
+      </div>
+    </header>
 
-<section class="hero">
-      <img src="<?= base_url('assets/img/home1.png'); ?>" height="570px" alt="Logo" class="logo" />
-      <div class="text-content">
-        <h1>Solusi Lengkap <span class="highlight">Konstruksi</span> Anda</h1>
-        <p>Kami menyediakan bahan bangunan berkualitas, jasa konstruksi profesional, dan peralatan kerja terlengkap untuk mewujudkan proyek impian Anda dengan standar terbaik.</p>
-
-        <button class="btn-primary"><i class="fa-solid fa-phone"></i>  Konsultasi Gratis</button>
-        <button class="btn-secondary"><i class="fa-solid fa-play"></i>  Lihat Portfolio</button>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="bg"></div>
+      <div class="content">
+        <h1>Premium Construction Materials</h1>
+        <p>Build your dreams with quality materials from trusted suppliers</p>
+        <button class="btn-primary">Shop Now</button>
       </div>
     </section>
 
-<!-- TITLE -->
-<div class="title">
-    <h1>Get in Touch</h1>
-    <span></span>
-    <p>Kami siap membantu Anda untuk setiap pertanyaan, proyek, atau kerja sama.</p>
-</div>
+    <!-- filters -->
+    <div class="filters">
+      <div class="left">
+        <select class="select">
+          <option>All Categories</option>
+          <option>Building Materials</option>
+          <option>Tools</option>
+          <option>Safety</option>
+        </select>
 
-<!-- FORM -->
-<div class="form-card">
-    <div class="form-row">
-        <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your full name">
+        <select class="select">
+          <option>All Prices</option>
+          <option>Under $50</option>
+          <option>$50 - $200</option>
+          <option>Over $200</option>
+        </select>
+
+        <select class="select">
+          <option>Sort By: Featured</option>
+          <option>Newest</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+        </select>
+      </div>
+
+      <div style="color:var(--muted);font-weight:600">Showing 24 of 156 products</div>
+    </div>
+
+    <div class="promo">🔥 Limited Time Offer: 20% OFF on all Steel Products | Free Delivery on Orders Over $500</div>
+
+    <!-- product grid -->
+    <section class="grid" aria-label="product-grid">
+      <!-- repeat card 8x for demo -->
+      <article class="card">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Premium Portland Cement</h3>
+          <p>High-strength cement for professional construction</p>
+          <div class="meta">
+            <div class="price">$45.99</div>
+            <button class="add">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:url('/mnt/data/2c6b9dfb-464b-499a-b3a7-d3e9dea7ea61.png')"></div>
+        <div class="body">
+          <h3>Steel Rebar Set</h3>
+          <p>Reinforcement steel bars for concrete structures</p>
+          <div class="meta">
+            <div class="price">$189.99</div>
+            <button class="add">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Clay Bricks (100 pcs)</h3>
+          <p>Traditional red clay bricks for masonry work</p>
+          <div class="meta">
+            <div class="price">$89.99</div>
+            <button class="add">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Professional Power Drill</h3>
+          <p>Heavy-duty cordless drill for construction work</p>
+          <div class="meta">
+            <div class="price">$299.99</div>
+            <button class="add">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Concrete Mixer</h3>
+          <p>Portable concrete mixer for medium projects</p>
+          <div class="meta">
+            <div class="price">$1,299.99</div>
+            <button class="add">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Safety Helmet Set</h3>
+          <p>Professional safety helmets with adjustable straps</p>
+          <div class="meta">
+            <div class="price">$24.99</div>
+            <button class="add">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Premium Lumber Pack</h3>
+          <p>High-quality wooden planks for construction</p>
+          <div class="meta">
+            <div class="price">$159.99</div>
+            <button class="add">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Measuring Tools Kit</h3>
+          <p>Complete set of precision measuring tools</p>
+          <div class="meta">
+            <div class="price">$79.99</div>
+            <button class="add">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- pagination -->
+    <div class="pagination">
+      <div class="page">&lt;</div>
+      <div class="page active">1</div>
+      <div class="page">2</div>
+      <div class="page">3</div>
+      <div class="page">&gt;</div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer-grid">
+        <div class="contact">
+          <div class="logo-small"></div>
+          <h4 style="color:#fff">Bangun Bangsa</h4>
+          <div>Jl. Pembangunan No. 123 Jakarta<br>Selatan 12345 Indonesia</div>
+          <div style="margin-top:8px;color:var(--muted)">
+            <div>✉ info@bangunbangsa.com</div>
+            <div>📞 +62 21 1234 5678</div>
+          </div>
         </div>
 
-        <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" placeholder="Enter your email">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label>Message</label>
-        <textarea placeholder="Tell us about your project or inquiry..."></textarea>
-    </div>
-
-    <button class="send-btn">Send Message</button>
-</div>
-
-<!-- CONTACT INFORMATION -->
-<div class="contact-section">
-    <h2>Contact Information</h2>
-
-    <div class="contact-cards">
-        <div class="card">
-            <div class="icon"><i class="fa fa-envelope"></i></div>
-            <h4>Email</h4>
-            <p>sales@bangunbangsa.com</p>
+        <div>
+          <h4>Company</h4>
+          <div style="color:var(--muted);display:flex;flex-direction:column;gap:8px">
+            <a href="#" style="color:var(--muted);text-decoration:none">About</a>
+            <a href="#" style="color:var(--muted);text-decoration:none">Career</a>
+            <a href="#" style="color:var(--muted);text-decoration:none">Contact</a>
+            <a href="#" style="color:var(--muted);text-decoration:none">Services</a>
+          </div>
         </div>
 
-        <div class="card">
-            <div class="icon"><i class="fa fa-phone"></i></div>
-            <h4>Phone</h4>
-            <p>+62 812 2123 1238</p>
+        <div>
+          <h4>Layanan</h4>
+          <div style="color:var(--muted);display:flex;flex-direction:column;gap:8px">
+            <a href="#" style="color:var(--muted);text-decoration:none">Home Construction</a>
+            <a href="#" style="color:var(--muted);text-decoration:none">Tools Rental</a>
+            <a href="#" style="color:var(--muted);text-decoration:none">Safety Gear</a>
+            <a href="#" style="color:var(--muted);text-decoration:none">Architecture</a>
+          </div>
         </div>
 
-        <div class="card">
-            <div class="icon"><i class="fa fa-location-dot"></i></div>
-            <h4>Location</h4>
-            <p>Jl. Mununggul No.5, Jakarta</p>
+        <div>
+          <h4>Support & Store</h4>
+          <div style="color:var(--muted);display:flex;flex-direction:column;gap:8px">
+            <a href="#" style="color:var(--muted);text-decoration:none">Jakarta Pusat</a>
+            <a href="#" style="color:var(--muted);text-decoration:none">Bandung</a>
+            <a href="#" style="color:var(--muted);text-decoration:none">Surabaya</a>
+            <a href="#" style="color:var(--muted);text-decoration:none">Konsultasi</a>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<!-- FOLLOW US -->
-<div class="follow">
-    <h3>Follow Us</h3>
-    <div class="icons">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-linkedin-in"></i>
-    </div>
-</div>
+      <div style="text-align:center;color:var(--muted);padding:18px 0 0;font-size:13px">
+        © 2024 Bangun Bangsa. All rights reserved.
+      </div>
+    </footer>
 
-<!-- FOOTER -->
-<footer>
-    <div class="brand">
-    <img src="<?= base_url('assets/img/logo.svg'); ?>" alt="Logo" class="logo" />
-
-    <div class="brand-text">
-        <h2 style="font-size:18px; padding-top: 12px; padding-bottom: 12px;">Bangun Bangsa</h2>
-
-        <div class="info">
-            <p>Jl. Pembangunan No. 123 Jakarta Selatan 12345 Indonesia</p>
-    
-            <div class="icon"><i class="fa fa-envelope"></i> info@bangunbangsa.com</div>
-            <div class="icon"><i class="fa fa-phone"></i> +62 21 1234 5678</div>
-        </div>
-
-        
-    </div>
-</div>
-
-
-    <div>
-        <h3>Company</h3>
-        <ul>
-            <li>About</li>
-            <li>Career</li>
-            <li>Contact</li>
-            <li>Services</li>
-        </ul>
-    </div>
-
-    <div>
-        <h3>Layanan</h3>
-        <ul>
-            <li>Home Construction</li>
-            <li>Tools Rental</li>
-            <li>Safety Gear</li>
-            <li>Architecture</li>
-            <li>Consultant</li>
-        </ul>
-    </div>
-
-    <div>
-        <h3>Support & Store</h3>
-        <ul>
-            <li>Jakarta Pusat</li>
-            <li>Jakarta Selatan</li>
-            <li>Bandung</li>
-            <li>Surabaya</li>
-            <li>Konsultasi</li>
-        </ul>
-    </div>
-
-    <div class="footer-end">
-        <div class="social" >
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-linkedin"></i>
-        </div>
-
-        <div class="footer-bottom">
-            © 2024 Bangun Bangsa. All rights reserved.
-        </div>
-    </div>
-</footer>
-
-
+  </div>
 
 </body>
 </html>

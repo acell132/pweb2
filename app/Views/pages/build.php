@@ -83,7 +83,7 @@
         position: relative;
         width: 100%;
         height: 500px;
-        background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover no-repeat;
+        background: url('<?= base_url('assets/img/construction.jpg'); ?>') center/cover no-repeat;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -95,7 +95,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, 0.55);
+        background: rgba(0, 0, 0, 0.75);
     }
 
     .hero-content {
@@ -126,6 +126,7 @@
         font-weight: 600;
         display: inline-block;
         color: #000;
+        text-decoration: none;
     }
 
     /* ========== SECTION LAYANAN (BUILD & STYLE) ========== */
@@ -153,12 +154,13 @@
     }
 
     .service-card.yellow-border {
-        border-color: #eab308;
+        border-top-color: #eab308;
     }
 
     .service-card h3 {
         font-size: 1.2rem;
         margin-top: 8px;
+        color: #303841;
     }
 
     .service-card p {
@@ -171,6 +173,7 @@
         font-weight: bold;
         display: inline-block;
         color: #000;
+        text-decoration: none;
     }
 
     /* ICON STYLE */
@@ -178,7 +181,7 @@
         width: 43px;
         height: 43px;
         border-radius: 8px;
-        background: #eab308;
+        background: #ffffffff;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -291,9 +294,33 @@
         color: #C8C8C8;
         text-align: right;    /* jaga-jaga kalau multiline */
     }
+    .hero-buttons {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
 
+    .circle-btn {
+        width: 45px;
+        height: 45px;
+        background: none;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: #ffffffff;
+        font-size: 1.2rem;
+        transition: 0.2s ease;
+    }
 
-    
+    .circle-btn:hover {
+        background: #eab308;
+        color: #000;
+    }
+
 
 </style>
 </head>
@@ -329,6 +356,15 @@
             berkualitas tinggi dengan layanan profesional terpercaya.
         </p>
         <a href="#" class="btn-hero">Mulai Sekarang</a>
+        <div class="hero-buttons">
+            <div class="circle-btn" id="prevBtn">
+                <i class="fa fa-angle-left"></i>
+            </div>
+            <div class="circle-btn" id="nextBtn">
+                <i class="fa fa-angle-right"></i>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -339,7 +375,7 @@
         <!-- BUILD CARD -->
         <div class="service-card">
             <div class="card-icon">
-                <i class="fa-solid fa-hammer"></i>
+                <i class="fa-solid fa-hard-hat"></i>
             </div>
             <h3>Build</h3>
             <p>
@@ -449,6 +485,38 @@
     </div>
 </footer>
 
+<script>
+    // Daftar 5 background
+    const heroImages = [
+        "<?= base_url('assets/img/construction2.jpg'); ?>",
+        "<?= base_url('assets/img/construction3.jpg'); ?>",
+        "<?= base_url('assets/img/construction4.jpg'); ?>",
+        "<?= base_url('assets/img/construction5.jpg'); ?>",
+    ];
+
+    let currentIndex = 0;
+
+    const heroSection = document.querySelector(".hero");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    // Fungsi update background
+    function updateHeroBackground() {
+        heroSection.style.background = `url('${heroImages[currentIndex]}') center/cover no-repeat`;
+    }
+
+    // Tombol kiri
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + heroImages.length) % heroImages.length;
+        updateHeroBackground();
+    });
+
+    // Tombol kanan
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % heroImages.length;
+        updateHeroBackground();
+    });
+</script>
 
 
 </body>
