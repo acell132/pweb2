@@ -35,7 +35,7 @@
     .wrap{
       /* max-width:1200px; */
       /* margin:20px auto; */
-      padding:0 20px 80px;
+      /* padding:0 20px 80px; */
     }
 
     /* Top navigation */
@@ -75,21 +75,21 @@
 
     /* Hero */
     .hero{
-      margin-top:8px;
-      border-radius:12px;
+      /* margin-top:8px; */
+      /* border-radius:12px; */
       overflow:hidden;
       position:relative;
-      min-height:260px;
+      min-height:320px;
       display:flex;
       align-items:center;
       justify-content:center;
     }
     .hero .bg{
       position:absolute;inset:0;
-      background-image: url('/mnt/data/2c6b9dfb-464b-499a-b3a7-d3e9dea7ea61.png');
+      background: url('<?= base_url('assets/img/shop1.png'); ?>') center/cover no-repeat;
       background-size:cover;
       background-position:center;
-      filter:brightness(.45) contrast(.95);
+      /* filter:brightness(.45) contrast(.95); */
       transform:scale(1.02);
     }
     .hero .content{
@@ -110,7 +110,7 @@
       align-items:center;
       justify-content:space-between;
       background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-      padding:14px;border-radius:8px;
+      padding:14px 80px;border-radius:8px;
     }
     .filters .left{display:flex;gap:10px;align-items:center}
     .select{
@@ -118,18 +118,32 @@
     }
 
     /* promo */
-    .promo{
-      margin-top:14px;
-      background:var(--accent);
-      color:#222;
-      padding:10px 14px;
-      border-radius:6px;
-      text-align:center;font-weight:700;
+    .promo {
+        margin-top: 14px;
+        background: var(--accent);
+        color: #222;
+        padding: 10px 14px;
+        border-radius: 6px;
+        position: relative;
+
+        display: flex;            /* aktifkan flexbox */
+        align-items: center;      /* sejajarkan icon & text secara vertikal */
+        justify-content: center;  /* agar semuanya tetap center secara horizontal */
+
+        gap: 6px;                 /* jarak antara icon & teks */
+        font-weight: 600;
     }
+
+    .promo-text {
+        display: inline-block;    /* tidak perlu block, biar sejajar dengan icon */
+    }
+
+
 
     /* products grid */
     .grid{
-      margin-top:20px;
+      margin:20px 80px;
+
       display:grid;
       grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
       gap:20px;
@@ -141,10 +155,13 @@
       box-shadow:0 6px 14px rgba(0,0,0,0.45), inset 0 1px rgba(255,255,255,0.02);
       display:flex;flex-direction:column;
     }
-    .card .thumb{
-      height:140px;background-image:url('/mnt/data/2c6b9dfb-464b-499a-b3a7-d3e9dea7ea61.png');
-      background-position:center;background-size:cover;
+    .card .thumb {
+        height: 140px;
+        background: url("https://placehold.co/400x300?text=Image") center/cover no-repeat;
     }
+
+
+
     .card .body{
       padding:14px;
       display:flex;flex-direction:column;gap:12px;flex:1;
@@ -160,9 +177,14 @@
     }
 
     /* pagination */
-    .pagination{
-      margin-top:26px;display:flex;gap:8px;justify-content:center;align-items:center;
+    .pagination {
+      margin: 26px 26px 60px; /* atas kanan-kiri bawah */
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
     }
+
     .page{
       width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.03);display:flex;
       align-items:center;justify-content:center;color:#dbe8ec;font-weight:700;cursor:pointer;
@@ -195,7 +217,7 @@
 <body>
 
   <div class="wrap">
-    <header>
+    <!-- <header>
       <div class="brand">
         <div class="logo">B</div>
         <div>
@@ -217,7 +239,7 @@
           <input placeholder="Search..." />
         </div>
       </div>
-    </header>
+    </header> -->
 
     <!-- HERO -->
     <section class="hero">
@@ -254,10 +276,10 @@
         </select>
       </div>
 
-      <div style="color:var(--muted);font-weight:600">Showing 24 of 156 products</div>
+      <div style="color:var(--muted);font-weight:400">Showing 24 of 156 products</div>
     </div>
 
-    <div class="promo">🔥 Limited Time Offer: 20% OFF on all Steel Products | Free Delivery on Orders Over $500</div>
+    <div class="promo"><img src="/assets/img/shop2.png" alt="Fire" class="promo-icon"> Limited Time Offer: 20% OFF on all Steel Products | Free Delivery on Orders Over $500</div>
 
     <!-- product grid -->
     <section class="grid" aria-label="product-grid">
@@ -275,7 +297,7 @@
       </article>
 
       <article class="card">
-        <div class="thumb" style="background-image:url('/mnt/data/2c6b9dfb-464b-499a-b3a7-d3e9dea7ea61.png')"></div>
+        <div class="thumb"></div>
         <div class="body">
           <h3>Steel Rebar Set</h3>
           <p>Reinforcement steel bars for concrete structures</p>
@@ -369,7 +391,7 @@
     </div>
 
     <!-- footer -->
-    <footer>
+    <!-- <footer>
       <div class="footer-grid">
         <div class="contact">
           <div class="logo-small"></div>
@@ -415,7 +437,7 @@
       <div style="text-align:center;color:var(--muted);padding:18px 0 0;font-size:13px">
         © 2024 Bangun Bangsa. All rights reserved.
       </div>
-    </footer>
+    </footer> -->
 
   </div>
 

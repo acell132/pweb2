@@ -20,6 +20,8 @@ $routes->post('/contact/sendMessage', 'Contact::sendMessage');
 $routes->get('/build', 'Build::index');
 
 $routes->get('/shop', 'Shop::index');
+$routes->get('/cart', 'Shop::cart');
+$routes->get('/shop/detail', 'Shop::detail');
 // $routes->get('/register', 'Auth::register');
 // $routes->post('/register/process', 'Auth::processRegister');
 
