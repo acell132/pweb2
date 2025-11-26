@@ -243,12 +243,12 @@
     <form action="/login/auth" method="POST">
       <div class="input-group">
         <i class="fa-solid fa-user"></i>
-        <input type="text" name="username" placeholder="Email or Username" required />
+        <input type="text" name="full_name" placeholder="Email or Username" required />
       </div>
 
       <div class="input-group">
         <i class="fa-solid fa-lock"></i>
-        <input type="password" name="password" placeholder="Password" required />
+        <input type="password" name="password_hash" placeholder="Password" required />
       </div>
 
       <div class="forgot">Forgot Password?</div>

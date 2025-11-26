@@ -1,0 +1,75 @@
+<?php
+
+namespace App\Database\Migrations;
+
+use CodeIgniter\Database\Migration;
+
+class CreateProductsTable extends Migration
+{
+    public function up()
+    {
+        $this->forge->addField([
+            'product_id' => [
+                'type' => 'INT',
+                'unsigned' => true,
+                'auto_increment' => true,
+            ],
+            'category_id' => [
+                'type' => 'INT',
+                'unsigned' => true,
+            ],
+            'name' => [
+                'type' => 'VARCHAR',
+                'constraint' => 200,
+            ],
+            'slug' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'unique' => true,
+            ],
+            'description' => [
+                'type' => 'TEXT',
+                'null' => true,
+            ],
+            'price' => [
+                'type' => 'DECIMAL',
+                'constraint' => '10,2',
+            ],
+            'stock' => [
+                'type' => 'INT',
+                'default' => 0,
+            ],
+            'rating' => [
+                'type' => 'DECIMAL',
+                'constraint' => '3,2',
+                'null' => true,
+            ],
+            'is_featured' => [
+                'type' => 'BOOLEAN',
+                'default' => false,
+            ],
+            'status' => [
+                'type' => 'ENUM',
+                'constraint' => ['active', 'inactive', 'out_of_stock'],
+                'default' => 'active',
+            ],
+            'created_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ],
+            'updated_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ],
+        ]);
+
+        $this->forge->addKey('product_id', true);
+        $this->forge->addForeignKey('category_id', 'categories', 'category_id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('products');
+    }
+
+    public function down()
+    {
+        $this->forge->dropTable('products');
+    }
+}

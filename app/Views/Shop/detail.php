@@ -114,13 +114,16 @@
     <section class="product-wrap">
       <div class="left-card">
         <div class="gallery-main">
-          <img id="mainImg" src="https://placehold.co/400x300?text=Image" alt="product">
+          <img id="mainImg" src="<?= base_url($images[0]['image_url'] ?? 'no-image.png') ?>">
         </div>
         <div class="thumbs">
-          <img src="https://placehold.co/400x300?text=Image" class="active" onclick="setMain(this)">
-          <img src="https://placehold.co/400x300?text=Image" onclick="setMain(this)">
-          <img src="https://placehold.co/400x300?text=Image" onclick="setMain(this)">
-          <img src="https://placehold.co/400x300?text=Image" onclick="setMain(this)">
+          <?php foreach ($images as $i => $img): ?>
+              <img 
+                  src="<?= base_url($img['image_url']) ?>" 
+                  class="<?= $i == 0 ? 'active' : '' ?>" 
+                  onclick="setMain(this)">
+          <?php endforeach; ?>
+
         </div>
       </div>
 
@@ -129,12 +132,19 @@
           <div class="badge">Best Seller</div>
           <div class="badge">In Stock</div>
         </div>
-        <h2 class="title">Premium Portland Cement Type I</h2>
-        <div class="rating"><span style="color:var(--accent);font-weight:800">4.8</span> <span style="color:#bfc8cb">(247 reviews)</span></div>
-        <p class="desc">High-quality Portland cement perfect for all construction needs. Ideal for foundations, structural work, and general masonry. Fast-setting formula with superior strength and durability. Meets ASTM C150 standards.</p>
+        <h2 class="title"><?= esc($product['name']) ?></h2>
 
-        <div class="price">Rp 85,000 <span style="font-size:14px;color:#c9d1d3;font-weight:600">/ bag (40kg)</span></div>
-        <div class="meta">Stock Available: <strong style="color:var(--accent)">1,250 bags</strong></div>
+        <div class="rating">
+            <span style="color:var(--accent);font-weight:800">
+                <?= number_format($avgRating, 1) ?>
+            </span>
+            <span style="color:#bfc8cb">(<?= $reviewCount ?> reviews)</span>
+        </div>
+
+        <p class="desc"><?= esc($product['description']) ?></p>
+
+        <div class="price">Rp <?= esc($product['price']) ?> <span style="font-size:14px;color:#c9d1d3;font-weight:600">/ bag (40kg)</span></div>
+        <div class="meta">Stock Available: <strong style="color:var(--accent)"><?= esc($product['stock']) ?></strong></div>
 
         <div class="qty">
           <label style="min-width:70px;color:#c9d1d3">Quantity:</label>
@@ -144,7 +154,9 @@
         </div>
 
         <div class="actions">
-          <button class="btn-primary"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+          <button class="btn-primary" onclick="addToCart()">
+              <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
           <button class="btn-like"><i class="far fa-heart"></i></button>
         </div>
 
@@ -160,45 +172,40 @@
       <div class="card">
         <h3>Product Specifications</h3>
         <div class="spec-list">
-          <div class="spec-item"><strong>Weight</strong>40 kg per bag</div>
-          <div class="spec-item"><strong>Type</strong>Portland Cement Type I</div>
-          <div class="spec-item"><strong>Brand</strong>Premium Build Co.</div>
-          <div class="spec-item"><strong>Standards</strong>ASTM C150, SNI 2049:2015</div>
-          <div class="spec-item"><strong>Compressive Strength</strong>>= 350 kg/cm² (28 days)</div>
-          <div class="spec-item"><strong>Setting Time</strong>Initial: 45-60 min, Final: 8-10 hours</div>
-          <div class="spec-item"><strong>Packaging</strong>Paper bag with moisture barrier</div>
-          <div class="spec-item"><strong>Storage</strong>Keep dry, use within 3 months</div>
+          <?php foreach ($specs as $spec): ?>
+              <div class="spec-item">
+                  <strong><?= esc($spec['specification_name']) ?></strong>
+                  <?= esc($spec['specification_value']) ?>
+              </div>
+          <?php endforeach; ?>
+
         </div>
       </div>
 
       <div class="card reviews">
         <h3>Customer Reviews</h3>
         <div style="display:flex;align-items:center;gap:14px;margin-top:8px">
-          <div class="score">4.8</div>
-          <div style="color:#c9d1d3">Based on 247 reviews<br><button class="btn-primary" style="padding:8px 12px;font-size:14px;margin-top:8px">Write Review</button></div>
+          <div class="score"><?= number_format($avgRating, 1) ?></div>
+          <div style="color:#c9d1d3">Based on (<?= $reviewCount ?> reviews) reviews<br><button class="btn-primary" style="padding:8px 12px;font-size:14px;margin-top:8px">Write Review</button></div>
         </div>
 
-        <div class="review-item" style="margin-top:16px">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <div class="name">Ahmad Wijaya</div>
-              <div style="color:#9fb0b2;font-size:13px">2 days ago</div>
+        <?php foreach ($reviews as $r): ?>
+            <div class="review-item">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div>
+                        <div class="name"><?= esc($r['full_name']) ?></div>
+                        <div style="color:#9fb0b2;font-size:13px">
+                            <?= date('d M Y', strtotime($r['created_at'])) ?>
+                        </div>
+                    </div>
+                    <div style="color:var(--accent)">
+                        <?= str_repeat('★', $r['rating']) ?>
+                    </div>
+                </div>
+                <p><?= esc($r['review_text']) ?></p>
             </div>
-            <div style="color:var(--accent)">★★★★★</div>
-          </div>
-          <p>Excellent quality cement! Used it for my house foundation and the results are outstanding. Sets quickly and very strong. Highly recommended for serious construction work.</p>
-        </div>
+        <?php endforeach; ?>
 
-        <div class="review-item">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <div class="name">Siti Nurhaliza</div>
-              <div style="color:#9fb0b2;font-size:13px">5 days ago</div>
-            </div>
-            <div style="color:var(--accent)">★★★★★</div>
-          </div>
-          <p>Best cement I've used for my renovation project. The consistency is perfect and it mixes well. Delivery was fast and packaging was intact. Will order again!</p>
-        </div>
 
       </div>
     </section>
@@ -206,28 +213,18 @@
     <section class="related">
       <h3 style="color:var(--light)">Related Products</h3>
       <div class="related-grid" style="margin-top:12px">
-        <div class="rel-card">
-          <img src="https://placehold.co/400x300?text=Image" alt="rel">
-          <div class="rel-title">White Portland Cement</div>
-          <div class="rel-price">Rp 95,000</div>
-        </div>
-        <div class="rel-card">
-          <img src="https://placehold.co/400x300?text=Image" alt="rel">
-          <div class="rel-title">Ready Mix Concrete</div>
-          <div class="rel-price">Rp 78,000</div>
-        </div>
-        <div class="rel-card">
-          <img src="https://placehold.co/400x300?text=Image" alt="rel">
-          <div class="rel-title">Mortar Mix Premium</div>
-          <div class="rel-price">Rp 72,000</div>
-        </div>
-        <div class="rel-card">
-          <img src="https://placehold.co/400x300?text=Image" alt="rel">
-          <div class="rel-title">Rapid Set Cement</div>
-          <div class="rel-price">Rp 105,000</div>
-        </div>
+
+        <?php foreach ($related as $rp): ?>
+          <div class="rel-card" onclick="window.location.href='<?= base_url('shop/detail/' . $rp['slug']) ?>'">
+            <img src="<?= base_url($rp['image_url'] ?? 'no-image.png') ?>" alt="rel">
+            <div class="rel-title"><?= esc($rp['name']) ?></div>
+            <div class="rel-price">Rp <?= number_format($rp['price'], 0, ',', '.') ?></div>
+          </div>
+        <?php endforeach; ?>
+
       </div>
     </section>
+
 
   </main>
 
@@ -238,14 +235,29 @@
       el.classList.add('active');
     }
     function increment(){
-      const el = document.getElementById('qty');
-      el.textContent = String(Number(el.textContent||'0')+1);
+        const el = document.getElementById('qty');
+        const maxQty = <?= $product['stock'] ?>;
+        let n = Number(el.textContent || '1') + 1;
+        el.textContent = String(Math.min(n, maxQty));
     }
+
     function decrement(){
-      const el = document.getElementById('qty');
-      const n = Math.max(1, Number(el.textContent||'1')-1);
-      el.textContent = String(n);
+        const el = document.getElementById('qty');
+        let n = Number(el.textContent || '1') - 1;
+        el.textContent = String(Math.max(n, 1));
     }
+
   </script>
+  <script>
+    function addToCart(){
+        let qty = Number(document.getElementById('qty').textContent || 1);
+        const maxQty = <?= $product['stock'] ?>;
+
+        // Batasi minimal 1, maksimal stok
+        qty = Math.max(1, Math.min(qty, maxQty));
+
+        window.location.href = '<?= base_url('cart/add/' . $product['product_id']) ?>?qty=' + qty;
+    }
+    </script>
 </body>
 </html>

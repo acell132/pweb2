@@ -65,17 +65,6 @@
 </head>
 <body>
 
-<!-- <header>
-    <div class="logo"> <img src="#" width="32"> Bangun Bangsa </div>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Build</a>
-        <a href="#">Shop</a>
-        <a href="#">Contact</a>
-    </nav>
-    <div class="search-box"><input type="text" placeholder="Search..." /></div>
-</header> -->
-
 <section class="page-header">
     <h1>Shopping Cart</h1>
     <p>Review your selected construction materials</p>
@@ -84,70 +73,43 @@
 <div class="container">
     <!-- Cart Items -->
     <div class="cart-box">
-        <h3>Cart Items (3)</h3>
+        <h3>Cart Items (<?= count($cart) ?>)</h3>
 
-        <!-- Item 1 -->
+        <?php foreach ($cart as $item): ?>
         <div class="cart-item">
-            <img src="https://via.placeholder.com/80">
-            <div class="item-info">
-                <h4>Steel Rebar #4</h4>
-                <p>High-grade construction steel, 20ft length</p>
-                <div class="price">$24.99</div>
-            </div>
-            <div class="qty-control">
-                <button class="qty-btn">−</button>
-                <span>5</span>
-                <button class="qty-btn">+</button>
-            </div>
-            <button class="delete-btn">🗑</button>
-        </div>
+            <img src="<?= base_url($item['image']) ?>">
 
-        <!-- Item 2 -->
-        <div class="cart-item">
-            <img src="https://via.placeholder.com/80">
             <div class="item-info">
-                <h4>Concrete Block 8×8×16</h4>
-                <p>Standard concrete masonry unit, hollow core</p>
-                <div class="price">$3.45</div>
+                <h4><?= esc($item['name']) ?></h4>
+                <div class="price">Rp <?= number_format($item['price'], 0, ',', '.') ?></div>
             </div>
-            <div class="qty-control">
-                <button class="qty-btn">−</button>
-                <span>24</span>
-                <button class="qty-btn">+</button>
-            </div>
-            <button class="delete-btn">🗑</button>
-        </div>
 
-        <!-- Item 3 -->
-        <div class="cart-item">
-            <img src="https://via.placeholder.com/80">
-            <div class="item-info">
-                <h4>Portland Cement</h4>
-                <p>Type I portland cement, 94lb bag</p>
-                <div class="price">$12.89</div>
-            </div>
             <div class="qty-control">
-                <button class="qty-btn">−</button>
-                <span>8</span>
-                <button class="qty-btn">+</button>
+                <a href="<?= base_url('cart/decrease/' . $item['product_id']) ?>" class="qty-btn">−</a>
+                <span><?= $item['quantity'] ?></span>
+                <a href="<?= base_url('cart/increase/' . $item['product_id']) ?>" class="qty-btn">+</a>
             </div>
-            <button class="delete-btn">🗑</button>
+
+            <a href="<?= base_url('cart/remove/' . $item['product_id']) ?>" class="delete-btn">🗑</a>
         </div>
+        <?php endforeach; ?>
+
 
         <div class="cart-actions">
-            <a href="#">⬅ Continue Shopping</a>
-            <a class="clear" href="#">🗑 Clear Cart</a>
+            <a href="<?= base_url('/shop') ?>">⬅ Continue Shopping</a>
+            <a class="clear" href="<?= base_url('cart/clear/') ?>">🗑 Clear Cart</a>
         </div>
     </div>
 
     <!-- Summary -->
     <div class="summary">
         <h3>Order Summary</h3>
-        <div><span>Subtotal</span><span>$311.07</span></div>
-        <div><span>Shipping</span><span>$45.00</span></div>
-        <div><span>Tax (8.5%)</span><span>$26.44</span></div>
+        <div><span>Subtotal</span><span>Rp <?= number_format($subtotal,0,',','.') ?></span></div>
+        <div><span>Shipping</span><span>Rp <?= number_format($shipping,0,',','.') ?></span></div>
+        <div><span>Tax (8.5%)</span><span>Rp <?= number_format($tax,0,',','.') ?></span></div>
 
-        <div class="total">$382.51</div>
+        <div class="total">Rp <?= number_format($total,0,',','.') ?></div>
+
 
         <button class="checkout-btn">Proceed to Checkout →</button>
 
@@ -156,41 +118,6 @@
         <div class="shipping-note">🚚 Free shipping on orders over $500</div>
     </div>
 </div>
-
-<!-- <footer>
-    <div>
-        <h4>Bangun Bangsa</h4>
-        <p>Jl. Pembangunan No. 123 Jakarta<br>Selatan 12345 Indonesia</p>
-        <p>info@bangunbangsa.com</p>
-        <p>+62 21 1234 5678</p>
-    </div>
-
-    <div>
-        <h4>Company</h4>
-        <a href="#">About</a><br>
-        <a href="#">Career</a><br>
-        <a href="#">Contact</a><br>
-        <a href="#">Services</a>
-    </div>
-
-    <div>
-        <h4>Layanan</h4>
-        <p>Home Construction</p>
-        <p>Tools Rental</p>
-        <p>Safety Gear</p>
-        <p>Architecture</p>
-        <p>Consultant</p>
-    </div>
-
-    <div>
-        <h4>Support & Store</h4>
-        <p>Jakarta Pusat</p>
-        <p>Jakarta Selatan</p>
-        <p>Bandung</p>
-        <p>Surabaya</p>
-        <p>Konsultasi</p>
-    </div>
-</footer> -->
 
 </body>
 </html>

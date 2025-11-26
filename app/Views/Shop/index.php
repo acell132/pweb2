@@ -187,7 +187,7 @@
 
     .page{
       width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.03);display:flex;
-      align-items:center;justify-content:center;color:#dbe8ec;font-weight:700;cursor:pointer;
+      align-items:center;justify-content:center;color:#dbe8ec;font-weight:700;cursor:pointer;text-decoration: none;
     }
     .page.active{background:var(--accent);color:#222}
 
@@ -217,29 +217,6 @@
 <body>
 
   <div class="wrap">
-    <!-- <header>
-      <div class="brand">
-        <div class="logo">B</div>
-        <div>
-          <div style="font-weight:800">Bangun Bangsa</div>
-          <div style="font-size:12px;color:var(--muted)">Premium Construction Materials</div>
-        </div>
-      </div>
-
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Build</a>
-        <a href="#">Shop</a>
-        <a href="#">Contact</a>
-      </nav>
-
-      <div style="display:flex;gap:12px;align-items:center;width:360px;max-width:40%">
-        <div class="search" aria-label="search">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:.9" xmlns="http://www.w3.org/2000/svg"><path d="M21 21L16.65 16.65" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <input placeholder="Search..." />
-        </div>
-      </div>
-    </header> -->
 
     <!-- HERO -->
     <section class="hero">
@@ -247,199 +224,136 @@
       <div class="content">
         <h1>Premium Construction Materials</h1>
         <p>Build your dreams with quality materials from trusted suppliers</p>
-        <button class="btn-primary">Shop Now</button>
+        <a href="#filters">
+          <button class="btn-primary">Shop Now</button>
+        </a>
       </div>
     </section>
 
     <!-- filters -->
-    <div class="filters">
+    <div class="filters" id="filters">
       <div class="left">
-        <select class="select">
-          <option>All Categories</option>
-          <option>Building Materials</option>
-          <option>Tools</option>
-          <option>Safety</option>
+        <select class="select" onchange="applyFilter()">
+            <option value="all" <?= ($category_selected == 'all' ? 'selected' : '') ?>>All Categories</option>
+            <option value="1" <?= ($category_selected == '1' ? 'selected' : '') ?>>Building Materials</option>
+            <option value="2" <?= ($category_selected == '2' ? 'selected' : '') ?>>Tools</option>
+            <option value="3" <?= ($category_selected == '3' ? 'selected' : '') ?>>Safety</option>
         </select>
 
-        <select class="select">
-          <option>All Prices</option>
-          <option>Under $50</option>
-          <option>$50 - $200</option>
-          <option>Over $200</option>
+        <select class="select" onchange="applyFilter()">
+          <option value="">All Prices</option>
+          <option value="under50" <?= ($price_selected == 'under50' ? 'selected' : '') ?>>Under $50</option>
+          <option value="50-200" <?= ($price_selected == '50-200' ? 'selected' : '') ?>>$50 - $200</option>
+          <option value="over200" <?= ($price_selected == 'over200' ? 'selected' : '') ?>>Over $200</option>
         </select>
 
-        <select class="select">
-          <option>Sort By: Featured</option>
-          <option>Newest</option>
-          <option>Price: Low to High</option>
-          <option>Price: High to Low</option>
+        <select class="select" onchange="applyFilter()">
+          <option value="">Featured</option>
+          <option value="latest" <?= ($sort_selected == 'latest' ? 'selected' : '') ?>>Newest</option>
+          <option value="low-high" <?= ($sort_selected == 'low-high' ? 'selected' : '') ?>>Price: Low to High</option>
+          <option value="high-low" <?= ($sort_selected == 'high-low' ? 'selected' : '') ?>>Price: High to Low</option>
         </select>
       </div>
-
-      <div style="color:var(--muted);font-weight:400">Showing 24 of 156 products</div>
+      <div style="color:var(--muted);font-weight:400">
+          Showing <?= count($products) ?> of <?= $filteredProducts ?> products
+          <?= ($filteredProducts != $totalProducts) ? " (Filtered from $totalProducts total)" : "" ?>
+      </div>
     </div>
 
-    <div class="promo"><img src="/assets/img/shop2.png" alt="Fire" class="promo-icon"> Limited Time Offer: 20% OFF on all Steel Products | Free Delivery on Orders Over $500</div>
+
+    <?php if ($activePromo): ?>
+    <div class="promo">
+        <img src="/assets/img/shop2.png" class="promo-icon">
+        <?= $activePromo['description'] ?>
+    </div>
+    <?php endif; ?>
+
 
     <!-- product grid -->
     <section class="grid" aria-label="product-grid">
-      <!-- repeat card 8x for demo -->
-      <article class="card">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Premium Portland Cement</h3>
-          <p>High-strength cement for professional construction</p>
-          <div class="meta">
-            <div class="price">$45.99</div>
-            <button class="add">Add to Cart</button>
-          </div>
-        </div>
-      </article>
 
-      <article class="card">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Steel Rebar Set</h3>
-          <p>Reinforcement steel bars for concrete structures</p>
-          <div class="meta">
-            <div class="price">$189.99</div>
-            <button class="add">Add to Cart</button>
-          </div>
-        </div>
-      </article>
+      <?php if (!empty($products)) : ?>
+        <?php foreach ($products as $product): ?>
+          <article class="card">
+            <div class="thumb"
+              style="background: url('<?= esc($product['image_url'] ?? "https://placehold.co/400x300"); ?>') center/cover no-repeat;">
+            </div>
 
-      <article class="card">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Clay Bricks (100 pcs)</h3>
-          <p>Traditional red clay bricks for masonry work</p>
-          <div class="meta">
-            <div class="price">$89.99</div>
-            <button class="add">Add to Cart</button>
-          </div>
-        </div>
-      </article>
+            <div class="body">
+              <h3><?= esc($product['name']); ?></h3>
+              <p><?= esc(substr($product['description'], 0, 80)); ?>...</p>
 
-      <article class="card">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Professional Power Drill</h3>
-          <p>Heavy-duty cordless drill for construction work</p>
-          <div class="meta">
-            <div class="price">$299.99</div>
-            <button class="add">Add to Cart</button>
-          </div>
-        </div>
-      </article>
+              <div class="meta">
+                <div class="price">Rp <?= number_format($product['price'], 0, ',', '.'); ?></div>
 
-      <article class="card">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Concrete Mixer</h3>
-          <p>Portable concrete mixer for medium projects</p>
-          <div class="meta">
-            <div class="price">$1,299.99</div>
-            <button class="add">Add to Cart</button>
-          </div>
-        </div>
-      </article>
+                <button class="add"
+                    onclick="window.location.href='/shop/<?= $product['slug']; ?>'">
+                    Add to Cart
+                </button>
 
-      <article class="card">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Safety Helmet Set</h3>
-          <p>Professional safety helmets with adjustable straps</p>
-          <div class="meta">
-            <div class="price">$24.99</div>
-            <button class="add">Add to Cart</button>
-          </div>
-        </div>
-      </article>
+              </div>
+            </div>
+          </article>
+        <?php endforeach; ?>
+      <?php else: ?>
 
-      <article class="card">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Premium Lumber Pack</h3>
-          <p>High-quality wooden planks for construction</p>
-          <div class="meta">
-            <div class="price">$159.99</div>
-            <button class="add">Add to Cart</button>
-          </div>
-        </div>
-      </article>
+        <p style="text-align:center; grid-column:1/-1; color:#ccc">No products available.</p>
 
-      <article class="card">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Measuring Tools Kit</h3>
-          <p>Complete set of precision measuring tools</p>
-          <div class="meta">
-            <div class="price">$79.99</div>
-            <button class="add">Add to Cart</button>
-          </div>
-        </div>
-      </article>
+      <?php endif; ?>
+
     </section>
 
+
     <!-- pagination -->
-    <div class="pagination">
-      <div class="page">&lt;</div>
-      <div class="page active">1</div>
-      <div class="page">2</div>
-      <div class="page">3</div>
-      <div class="page">&gt;</div>
-    </div>
+    <?php
+$pagerInfo = $pager->getDetails('products'); 
+// getDetails selalu mengembalikan array TIDAK PERNAH string
 
-    <!-- footer -->
-    <!-- <footer>
-      <div class="footer-grid">
-        <div class="contact">
-          <div class="logo-small"></div>
-          <h4 style="color:#fff">Bangun Bangsa</h4>
-          <div>Jl. Pembangunan No. 123 Jakarta<br>Selatan 12345 Indonesia</div>
-          <div style="margin-top:8px;color:var(--muted)">
-            <div>✉ info@bangunbangsa.com</div>
-            <div>📞 +62 21 1234 5678</div>
-          </div>
-        </div>
+$currentPage = $pagerInfo['currentPage'];
+$pageCount   = $pagerInfo['pageCount'];
+?>
+<div class="pagination">
 
-        <div>
-          <h4>Company</h4>
-          <div style="color:var(--muted);display:flex;flex-direction:column;gap:8px">
-            <a href="#" style="color:var(--muted);text-decoration:none">About</a>
-            <a href="#" style="color:var(--muted);text-decoration:none">Career</a>
-            <a href="#" style="color:var(--muted);text-decoration:none">Contact</a>
-            <a href="#" style="color:var(--muted);text-decoration:none">Services</a>
-          </div>
-        </div>
+    <!-- PREVIOUS -->
+    <?php if ($currentPage > 1): ?>
+        <a class="page" href="<?= $pager->getPreviousPageURI('products') ?>">&lt;</a>
+    <?php else: ?>
+        <div class="page" style="opacity:0.3">&lt;</div>
+    <?php endif; ?>
 
-        <div>
-          <h4>Layanan</h4>
-          <div style="color:var(--muted);display:flex;flex-direction:column;gap:8px">
-            <a href="#" style="color:var(--muted);text-decoration:none">Home Construction</a>
-            <a href="#" style="color:var(--muted);text-decoration:none">Tools Rental</a>
-            <a href="#" style="color:var(--muted);text-decoration:none">Safety Gear</a>
-            <a href="#" style="color:var(--muted);text-decoration:none">Architecture</a>
-          </div>
-        </div>
+    <!-- NUMBER LIST -->
+    <?php for ($i = 1; $i <= $pageCount; $i++): ?>
+        <a class="page <?= ($i == $currentPage ? 'active' : '') ?>"
+           href="<?= $pager->getPageURI($i, 'products') ?>">
+           <?= $i ?>
+        </a>
+    <?php endfor; ?>
 
-        <div>
-          <h4>Support & Store</h4>
-          <div style="color:var(--muted);display:flex;flex-direction:column;gap:8px">
-            <a href="#" style="color:var(--muted);text-decoration:none">Jakarta Pusat</a>
-            <a href="#" style="color:var(--muted);text-decoration:none">Bandung</a>
-            <a href="#" style="color:var(--muted);text-decoration:none">Surabaya</a>
-            <a href="#" style="color:var(--muted);text-decoration:none">Konsultasi</a>
-          </div>
-        </div>
-      </div>
+    <!-- NEXT -->
+    <?php if ($currentPage < $pageCount): ?>
+        <a class="page" href="<?= $pager->getNextPageURI('products') ?>">&gt;</a>
+    <?php else: ?>
+        <div class="page" style="opacity:0.3">&gt;</div>
+    <?php endif; ?>
 
-      <div style="text-align:center;color:var(--muted);padding:18px 0 0;font-size:13px">
-        © 2024 Bangun Bangsa. All rights reserved.
-      </div>
-    </footer> -->
+</div>
+
+
+
 
   </div>
+<script>
+  function applyFilter() {
+      const selects = document.querySelectorAll('.select');
+      const url = new URL(window.location.href);
+
+      url.searchParams.set('category', selects[0].value);
+      url.searchParams.set('price', selects[1].value);
+      url.searchParams.set('sort', selects[2].value);
+
+      window.location.href = url;
+  }
+</script>
 
 </body>
 </html>

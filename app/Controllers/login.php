@@ -15,16 +15,20 @@ class Login extends BaseController
         $session = session();
         $userModel = new UserModel();
 
-        $username = $this->request->getPost('username');
-        $password = $this->request->getPost('password');
+        $full_name = $this->request->getPost('full_name');
+        $password_hash = $this->request->getPost('password_hash');
 
-        $user = $userModel->where('username', $username)
-                          ->orWhere('email', $username)
+        $user = $userModel->where('full_name', $full_name)
+                          ->orWhere('email', $full_name)
                           ->first();
 
         if ($user) {
-            if (password_verify($password, $user['password'])) {
-                $session->set('username', $user['username']);
+            if (password_verify($password_hash, $user['password_hash'])) {
+                $session->set([
+                    'user_id' => $user['user_id'],
+                    'full_name' => $user['full_name'],
+                    'email' => $user['email'],
+                ]);
                 return redirect()->to('/');
             } else {
                 return redirect()->back()->with('error', 'Password Salah!');

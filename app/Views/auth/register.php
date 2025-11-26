@@ -229,7 +229,7 @@
         <label>Full Name</label>
         <div class="input-box">
           <i class="fa-solid fa-user"></i>
-          <input type="text" name="username" placeholder="Enter your username" required>
+          <input type="text" name="full_name" placeholder="Enter your Full Name" required>
         </div>
       </div>
 
@@ -245,7 +245,7 @@
         <label>Password</label>
         <div class="input-box">
           <i class="fa-solid fa-lock"></i>
-          <input type="password" name="password" placeholder="Enter your password" required>
+          <input type="password" name="password_hash" placeholder="Enter your password" required>
         </div>
       </div>
 

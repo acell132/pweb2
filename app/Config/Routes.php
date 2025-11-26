@@ -20,8 +20,14 @@ $routes->post('/contact/sendMessage', 'Contact::sendMessage');
 $routes->get('/build', 'Build::index');
 
 $routes->get('/shop', 'Shop::index');
-$routes->get('/cart', 'Shop::cart');
-$routes->get('/shop/detail', 'Shop::detail');
+$routes->get('/shop/(:segment)', 'Shop::detail/$1');
+
+$routes->get('/cart', 'Cart::index');
+$routes->get('/cart/add/(:num)', 'Cart::add/$1');
+$routes->get('/cart/remove/(:num)', 'Cart::remove/$1');
+$routes->get('/cart/clear', 'Cart::clear');
+$routes->get('/cart/increase/(:num)', 'Cart::increase/$1');
+$routes->get('/cart/decrease/(:num)', 'Cart::decrease/$1');
 // $routes->get('/register', 'Auth::register');
 // $routes->post('/register/process', 'Auth::processRegister');
 
