@@ -598,14 +598,14 @@
     <div class="footer-menu">
 
       <div class="footer-links">
-        <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="<?= base_url('/home'); ?>"><i class="fa-solid fa-house"></i> Home</a>
 
-        <a href="#" class="build">
+        <a href="<?= base_url('/build'); ?>" class="build">
           <i class="fa-solid fa-hammer"></i> Build
         </a>
 
-        <a href="#"><i class="fa-solid fa-shop"></i> Shop</a>
-        <a href="#"><i class="fa-solid fa-phone"></i> Contact</a>
+        <a href="<?= base_url('/shop'); ?>"><i class="fa-solid fa-shop"></i> Shop</a>
+        <a href="<?= base_url('/contact'); ?>"><i class="fa-solid fa-phone"></i> Contact</a>
       </div>
         <footer>
           <img src="<?= base_url('assets/img/logo.svg'); ?>" alt="Logo" class="logo" />
