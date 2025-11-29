@@ -434,6 +434,27 @@
       font-size: 12px;
       color: #AAA;
     }
+    .user-box {
+      background: #F7C600;
+      color: #2D2F36;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .user-box i {
+      font-size: 18px;
+    }
+
+    .user-box:hover {
+      opacity: 0.85;
+    }
+
 
     /* Icon fonts (for simplicity I use emojis) */
   </style>
@@ -450,14 +471,24 @@
       </div>
 
       <div class="buttons">
-        <button onclick="window.location.href='<?= base_url('login'); ?>'">
-        <i class="fa-solid fa-user"></i>  
-        Login</button>
-       <button class="signup" onclick="window.location.href='<?= base_url('register'); ?>'">
-          Register
-       </button>
+          <?php if (!isset($user)) : ?>
+              <!-- Belum login = tampil login + register -->
+              <button onclick="window.location.href='<?= base_url('login'); ?>'">
+                  <i class="fa-solid fa-user"></i> Login
+              </button>
+              <button class="signup" onclick="window.location.href='<?= base_url('register'); ?>'">
+                  Register
+              </button>
 
+          <?php else : ?>
+              <!-- Sudah login = tampilkan nama -->
+              <div class="user-box">
+                  <i class="fa-solid fa-user-circle"></i>
+                  <?= esc($user['full_name']); ?>
+              </div>
+          <?php endif; ?>
       </div>
+
     </nav>
 
     <!-- HEADER (Hero Section) -->
@@ -467,7 +498,14 @@
         <h1>Solusi Lengkap <span class="highlight">Konstruksi</span> Anda</h1>
         <p>Kami menyediakan bahan bangunan berkualitas, jasa konstruksi profesional, dan peralatan kerja terlengkap untuk mewujudkan proyek impian Anda dengan standar terbaik.</p>
 
-        <button class="btn-primary"><i class="fa-solid fa-phone"></i>  Konsultasi Gratis</button>
+        <a 
+          href="https://wa.me/6288238267981?text=Halo%20saya%20ingin%20konsultasi%20terkait%20konstruksi" 
+          target="_blank" 
+          class="btn-primary"
+        >
+          <i class="fa-solid fa-phone"></i> Konsultasi Gratis
+        </a>
+
         <button class="btn-secondary"><i class="fa-solid fa-play"></i>  Lihat Portfolio</button>
       </div>
     </header>
