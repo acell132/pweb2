@@ -1,12 +1,3 @@
-<!doctype html>
-<html lang="id">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bangun Bangsa - Shop Mockup</title>
-
-  <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -191,30 +182,13 @@
     }
     .page.active{background:var(--accent);color:#222}
 
-    /* footer */
-    footer{
-      margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.03);
-      color:var(--muted);
-    }
-    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px;padding-top:20px}
-    .footer-grid h4{margin:0 0 12px;color:#fff}
-    .contact .logo-small{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,#4a5a6a,#2f8bdc);display:inline-block;margin-bottom:12px}
+  
 
-    /* small screens */
-    @media (max-width:880px){
-      .wrap{padding:0 16px}
-      .footer-grid{grid-template-columns:1fr 1fr}
-      .hero h1{font-size:28px}
-    }
-    @media (max-width:520px){
-      nav{display:none}
-      .search{width:100%}
-      .hero{min-height:220px}
-      .footer-grid{grid-template-columns:1fr}
-    }
   </style>
 </head>
 <body>
+
+<?= $this->include('Layout/header');?>
 
   <div class="wrap">
 
@@ -338,8 +312,7 @@ $pageCount   = $pagerInfo['pageCount'];
 
 </div>
 
-
-
+<?= $this->include('Layout/footer'); ?>
 
   </div>
 <script>

@@ -1,3 +1,83 @@
+<style>
+     /* FOOTER */
+
+    footer {
+        background: 303841;
+        padding: 50px 60px;
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: 50px;
+        
+    }
+
+    footer h3 {
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+
+    footer ul {
+        list-style: none;
+        line-height: 30px;
+        font-size: 14px;
+        color: #C8C8C8;
+    }
+
+    footer .brand {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    footer .brand img {
+        width: 50px;
+    }
+
+    footer .brand .brand-text {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    footer .brand .brand-text .info{
+        margin-left: -60px;
+        margin-top: 10px;
+    }
+
+
+    footer .brand p {
+        margin: 5px 0;
+        color: #C8C8C8;
+        font-size: 14px;
+    }
+
+    footer .brand .icon {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 6px 0;
+    }
+
+    .footer-end {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 10px 20px;   /* tambahkan padding kiri & kanan */
+        width: 100%;          /* biar melebar full ke kiri–kanan */
+        grid-column: 1 / -1;
+        border-top: 1px solid #4A535C;
+    }
+
+    .footer-end .social {
+        gap: 40px;
+    }
+
+    .footer-bottom {
+        font-size: 14px;
+        color: #C8C8C8;
+        text-align: right;    /* jaga-jaga kalau multiline */
+    }
+
+
+    </style>
 <footer>
     <div class="brand">
     <img src="<?= base_url('assets/img/logo.svg'); ?>" alt="Logo" class="logo" />
