@@ -185,7 +185,7 @@
   
 
   </style>
-</head>
+
 <body>
 
 <?= $this->include('Layout/header');?>
