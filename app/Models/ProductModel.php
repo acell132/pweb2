@@ -10,7 +10,7 @@ class ProductModel extends Model
     protected $primaryKey = 'product_id';
     protected $allowedFields = [
         'category_id', 'name', 'slug', 'description', 'price',
-        'stock', 'rating', 'is_featured', 'status'
+        'stock', 'is_featured', 'status'
     ];
 
     public function getProductsWithImage()
@@ -33,7 +33,12 @@ class ProductModel extends Model
 
     public function getRelatedProducts($categoryId, $currentProductId)
     {
-        return $this->select('products.*, product_images.image_url')
+        return $this->select("
+                products.*, 
+                product_images.image_url,
+                (SELECT AVG(rating) FROM reviews WHERE reviews.product_id = products.product_id) AS avg_rating,
+                (SELECT COUNT(*) FROM reviews WHERE reviews.product_id = products.product_id) AS review_count
+            ")
             ->join(
                 'product_images',
                 'product_images.product_id = products.product_id 
@@ -46,6 +51,7 @@ class ProductModel extends Model
             ->limit(4)
             ->findAll();
     }
+
 
 
 }

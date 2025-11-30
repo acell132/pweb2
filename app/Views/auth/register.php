@@ -29,7 +29,8 @@
     }
 
     .register-container {
-      width: 380px;
+      margin: 80px 0;
+      width: 450px;
       background: rgba(255, 255, 255, 0.05);
       padding: 35px;
       border-radius: 12px;

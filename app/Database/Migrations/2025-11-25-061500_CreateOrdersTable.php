@@ -20,31 +20,18 @@ class CreateOrdersTable extends Migration
             ],
             'status' => [
                 'type' => 'ENUM',
-                'constraint' => ['pending', 'paid', 'shipped', 'completed', 'cancelled'],
+                'constraint' => ['pending', 'verification', 'paid', 'shipped', 'completed', 'cancelled'],
                 'default' => 'pending',
-            ],
-            'subtotal' => [
-                'type' => 'DECIMAL',
-                'constraint' => '10,2',
-            ],
-            'shipping_fee' => [
-                'type' => 'DECIMAL',
-                'constraint' => '10,2',
-                'default' => 0.00,
-            ],
-            'tax' => [
-                'type' => 'DECIMAL',
-                'constraint' => '10,2',
-                'default' => 0.00,
             ],
             'total' => [
                 'type' => 'DECIMAL',
-                'constraint' => '10,2',
+                'constraint' => '20,2',
             ],
-            'payment_method' => [
-                'type' => 'ENUM',
-                'constraint' => ['credit_card', 'paypal', 'bank_transfer', 'cod'],
-                'default' => 'cod',
+            'order_date' => [
+                'type' => 'DATE',
+            ],
+            'address' => [
+                'type' => 'TEXT',
             ],
             'created_at' => [
                 'type' => 'DATETIME',

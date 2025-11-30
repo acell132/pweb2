@@ -10,6 +10,26 @@ class ProductImageSeeder extends Seeder
     {
         $images = [
             [
+                'product_id' => 1,
+                'image_url' => 'uploads/products/construction.jpg',
+                'is_primary' => true,
+            ],
+            [
+                'product_id' => 2,
+                'image_url' => 'uploads/products/construction.jpg',
+                'is_primary' => true,
+            ],
+            [
+                'product_id' => 3,
+                'image_url' => 'uploads/products/construction.jpg',
+                'is_primary' => true,
+            ],
+            [
+                'product_id' => 4,
+                'image_url' => 'uploads/products/construction.jpg',
+                'is_primary' => true,
+            ],
+            [
                 'product_id' => 5,
                 'image_url' => 'uploads/products/construction.jpg',
                 'is_primary' => true,
@@ -31,26 +51,6 @@ class ProductImageSeeder extends Seeder
             ],
             [
                 'product_id' => 9,
-                'image_url' => 'uploads/products/construction.jpg',
-                'is_primary' => true,
-            ],
-            [
-                'product_id' => 10,
-                'image_url' => 'uploads/products/construction.jpg',
-                'is_primary' => true,
-            ],
-            [
-                'product_id' => 11,
-                'image_url' => 'uploads/products/construction.jpg',
-                'is_primary' => true,
-            ],
-            [
-                'product_id' => 12,
-                'image_url' => 'uploads/products/construction.jpg',
-                'is_primary' => true,
-            ],
-            [
-                'product_id' => 13,
                 'image_url' => 'uploads/products/construction.jpg',
                 'is_primary' => true,
             ],
