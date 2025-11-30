@@ -71,7 +71,7 @@
 <nav>
     <div class="left">
         <img src="<?= base_url('assets/img/logo.svg'); ?>" alt="Logo"/>
-        <span>Bangun Bangsa</span>
+        <span style="font-weight: 900; font-size: 20px;">Bangun Bangsa</span>
     </div>
 
     <ul>

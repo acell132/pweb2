@@ -509,7 +509,6 @@
 
       <div class="buttons">
           <?php if (empty($user['user_id'])) : ?>
-              <!-- Belum login = tampil login + register -->
               <button onclick="window.location.href='<?= base_url('login'); ?>'">
                   <i class="fa-solid fa-user"></i> Login
               </button>

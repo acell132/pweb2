@@ -34,9 +34,7 @@ class Cart extends BaseController
         return $cartId;
     }
 
-    // ==================================================
     // TAMPILKAN CART
-    // ==================================================
     public function index()
     {
         $cartId = $this->getUserCartId();
@@ -76,9 +74,7 @@ class Cart extends BaseController
         ]);
     }
 
-    // ==================================================
     // ADD TO CART
-    // ==================================================
     public function add($productId)
     {
         $product = $this->product->find($productId);
@@ -106,9 +102,7 @@ class Cart extends BaseController
         return redirect()->to('/cart');
     }
 
-    // ==================================================
     // REMOVE ITEM
-    // ==================================================
     public function remove($productId)
     {
         $cartId = $this->getUserCartId();
@@ -118,9 +112,7 @@ class Cart extends BaseController
         return redirect()->to('/cart');
     }
 
-    // ==================================================
     // CLEAR CART
-    // ==================================================
     public function clear()
     {
         $cartId = $this->getUserCartId();
@@ -128,9 +120,7 @@ class Cart extends BaseController
         return redirect()->to('/cart');
     }
 
-    // ==================================================
     // INCREASE QTY
-    // ==================================================
     public function increase($productId)
     {
         $cartId = $this->getUserCartId();
@@ -143,9 +133,7 @@ class Cart extends BaseController
         return redirect()->to('/cart');
     }
 
-    // ==================================================
     // DECREASE QTY
-    // ==================================================
     public function decrease($productId)
     {
         $cartId = $this->getUserCartId();
