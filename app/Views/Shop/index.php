@@ -219,9 +219,9 @@
 
         <select class="select" onchange="applyFilter()">
           <option value="">All Prices</option>
-          <option value="under50" <?= ($price_selected == 'under50' ? 'selected' : '') ?>>Under $50</option>
-          <option value="50-200" <?= ($price_selected == '50-200' ? 'selected' : '') ?>>$50 - $200</option>
-          <option value="over200" <?= ($price_selected == 'over200' ? 'selected' : '') ?>>Over $200</option>
+          <option value="under50" <?= ($price_selected == 'under50' ? 'selected' : '') ?>>Under Rp 50.000</option>
+          <option value="50-200" <?= ($price_selected == '50-200' ? 'selected' : '') ?>>Rp 50.000 - Rp 200.000</option>
+          <option value="over200" <?= ($price_selected == 'over200' ? 'selected' : '') ?>>Over Rp 200.000</option>
         </select>
 
         <select class="select" onchange="applyFilter()">

@@ -165,8 +165,8 @@
 
       <aside class="right-card">
         <div class="badges">
-          <div class="badge">Best Seller</div>
-          <div class="badge">In Stock</div>
+          <!-- <div class="badge">Best Seller</div>
+          <div class="badge">In Stock</div> -->
         </div>
         <h2 class="title"><?= esc($product['name']) ?></h2>
 

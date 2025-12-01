@@ -595,12 +595,31 @@ $orders = array_slice($filteredOrders, $start - 1, $perPage);
     </div>
 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
     <form method="GET" style="display: flex; gap: 12px; flex-wrap: wrap; padding: 16px 0; border-radius: 12px;">
-        <input type="date" name="start_date" value="<?= htmlspecialchars($startDate) ?>" placeholder="Start Date" class="filter-input">
-        <input type="date" name="end_date" value="<?= htmlspecialchars($endDate) ?>" placeholder="End Date" class="filter-input">
-        <input type="number" name="min_price" value="<?= htmlspecialchars($minPrice) ?>" placeholder="Min Price" class="filter-input">
-        <input type="number" name="max_price" value="<?= htmlspecialchars($maxPrice) ?>" placeholder="Max Price" class="filter-input">
-        <button type="submit" class="filter-btn">Filter</button>
+
+        <div style="display: flex; flex-direction: column;">
+            <label for="start_date" style="margin-bottom: 4px; font-size: 14px;">Start Date</label>
+            <input type="date" id="start_date" name="start_date" value="<?= htmlspecialchars($startDate) ?>" class="filter-input">
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+            <label for="end_date" style="margin-bottom: 4px; font-size: 14px;">End Date</label>
+            <input type="date" id="end_date" name="end_date" value="<?= htmlspecialchars($endDate) ?>" class="filter-input">
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+            <label for="min_price" style="margin-bottom: 4px; font-size: 14px;">Min Price</label>
+            <input type="number" id="min_price" name="min_price" value="<?= htmlspecialchars($minPrice) ?>" class="filter-input">
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+            <label for="max_price" style="margin-bottom: 4px; font-size: 14px;">Max Price</label>
+            <input type="number" id="max_price" name="max_price" value="<?= htmlspecialchars($maxPrice) ?>" class="filter-input">
+        </div>
+
+        <button type="submit" class="filter-btn" style="height: 45px; align-self: end;">Filter</button>
+
     </form>
+
 
     <div style="color: #b0b9c1; font-weight:500; font-size:14px;">
         Showing <?= $start ?> to <?= $end ?> of <?= $totalOrders ?> orders
@@ -618,7 +637,7 @@ $orders = array_slice($filteredOrders, $start - 1, $perPage);
                 </div>
 
                 <!-- Baris kedua: Daftar produk -->
-                <div style=" overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:500; color:#dce7eb; margin-top: 5px;"><i class="fa-solid fa-boxes-packing" style="margin-right: 8px;"></i>
+                <div style=" overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:500; color:#dce7eb; margin-top: 5px;"><img src="assets/img/carbon_financial-assets.png" width="15px" height="15px" style="margin-right: 12px;" alt="">
                     <?php 
                         $productNames = array_map(fn($item) => esc($item['name']), $order['items']);
                         echo implode(', ', $productNames);

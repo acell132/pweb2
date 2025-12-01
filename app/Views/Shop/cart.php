@@ -238,8 +238,8 @@
         <input type="hidden" id="total" value="<?= $total ?>">
 
 
-        <button class="checkout-btn" onclick="confirmCheckout()">✅ Checkout</button>
-        <button class="close-btn" onclick="closeAddressModal()">✕ Cancel</button>
+        <button class="checkout-btn" onclick="confirmCheckout()"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Checkout</button>
+        <button class="close-btn" onclick="closeAddressModal()"><i class="fa fa-times" aria-hidden="true"></i> Cancel</button>
     </div>
 </div>
 <script>

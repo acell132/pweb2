@@ -45,6 +45,13 @@
         font-size:14px;
         text-decoration:none;
     }
+    nav ul li a:hover{
+        color: goldenrod;
+    }
+    nav ul li a.active {
+        color: goldenrod;
+    }
+
 
     nav .search{
         background:#fff;
@@ -75,10 +82,10 @@
     </div>
 
     <ul>
-        <li><a href="<?= base_url('/home'); ?>">Home</a></li>
-        <li><a href="<?= base_url('/build'); ?>">Build</a></li>
-        <li><a href="<?= base_url('/shop'); ?>">Shop</a></li>
-        <li><a href="<?= base_url('/contact'); ?>">Contact</a></li>
+        <li><a class="<?= uri_string() == 'home' ? 'active' : '' ?>" href="<?= base_url('/home'); ?>">Home</a></li>
+        <li><a class="<?= uri_string() == 'build' ? 'active' : '' ?>" href="<?= base_url('/build'); ?>">Build</a></li>
+        <li><a class="<?= uri_string() == 'shop' ? 'active' : '' ?>" href="<?= base_url('/shop'); ?>">Shop</a></li>
+        <li><a class="<?= uri_string() == 'contact' ? 'active' : '' ?>" href="<?= base_url('/contact'); ?>">Contact</a></li>
     </ul>
 
     <div class="search">
