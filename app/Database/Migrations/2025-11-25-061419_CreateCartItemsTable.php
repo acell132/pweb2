@@ -28,7 +28,7 @@ class CreateCartItemsTable extends Migration
             ],
             'unit_price' => [
                 'type' => 'DECIMAL',
-                'constraint' => '10,2',
+                'constraint' => '20,2',
             ],
             'created_at' => [
                 'type' => 'DATETIME',

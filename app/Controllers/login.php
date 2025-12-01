@@ -28,6 +28,7 @@ class Login extends BaseController
                     'user_id' => $user['user_id'],
                     'full_name' => $user['full_name'],
                     'email' => $user['email'],
+                    'isLoggedIn'  => true
                 ]);
                 return redirect()->to('/');
             } else {
@@ -37,4 +38,18 @@ class Login extends BaseController
             return redirect()->back()->with('error', 'Akun Tidak Ditemukan!');
         }
     }
+
+    public function logout()
+    {
+        $session = session();
+
+        // Hapus semua session user
+        $session->remove(['user_id', 'full_name', 'email', 'isLoggedIn']);
+
+        // Atau bisa clear semua session
+        // $session->destroy();
+
+        return redirect()->to(base_url('/home'))->with('success', 'Anda berhasil logout.');
+    }
+
 }

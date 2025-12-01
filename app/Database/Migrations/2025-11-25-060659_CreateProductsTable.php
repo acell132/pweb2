@@ -33,7 +33,7 @@ class CreateProductsTable extends Migration
             ],
             'price' => [
                 'type' => 'DECIMAL',
-                'constraint' => '10,2',
+                'constraint' => '20,2',
             ],
             'stock' => [
                 'type' => 'INT',

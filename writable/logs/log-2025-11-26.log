@@ -1423,6 +1423,7 @@ DEBUG - 2025-11-26 03:25:03 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2025-11-26 03:25:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-11-26 03:25:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-11-26 03:25:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
 ERROR - 2025-11-26 05:42:54 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'construction' in C:\laragon\www\pweb2\system\Database\MySQLi\Connection.php:202
 Stack trace:
 #0 C:\laragon\www\pweb2\system\Database\MySQLi\Connection.php(202): mysqli->real_connect('localhost', 'root', '', 'construction', 3306, '', 0)
@@ -1470,3 +1471,103 @@ in SYSTEMPATH\Database\BaseConnection.php on line 465.
  9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pweb2\\public\\index.php')
+=======
+DEBUG - 2025-11-26 03:50:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:50:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:50:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:50:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:50:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:51:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:53:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:53:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:53:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:53:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:53:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:53:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:53:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:53:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:53:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:53:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:53:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 03:53:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-26 04:36:50 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\Shop\detail.php on line 139.
+ 1 APPPATH\Views\Shop\detail.php(139): number_format(null, 1)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\nyobaUAS\\app\\Views\\Shop\\detail.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('Shop/detail', [], true)
+ 5 APPPATH\Controllers\Shop.php(109): view('Shop/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Shop->detail('construction-safety-gloves')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Shop))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\nyobaUAS\\public\\index.php')
+WARNING - 2025-11-26 04:36:50 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\Shop\detail.php on line 188.
+ 1 APPPATH\Views\Shop\detail.php(188): number_format(null, 1)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\nyobaUAS\\app\\Views\\Shop\\detail.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('Shop/detail', [], true)
+ 5 APPPATH\Controllers\Shop.php(109): view('Shop/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Shop->detail('construction-safety-gloves')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Shop))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\nyobaUAS\\public\\index.php')
+WARNING - 2025-11-26 05:13:30 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\Shop\detail.php on line 139.
+ 1 APPPATH\Views\Shop\detail.php(139): number_format(null, 1)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\nyobaUAS\\app\\Views\\Shop\\detail.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('Shop/detail', [], true)
+ 5 APPPATH\Controllers\Shop.php(109): view('Shop/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Shop->detail('construction-safety-gloves')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Shop))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\nyobaUAS\\public\\index.php')
+WARNING - 2025-11-26 05:13:30 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\Shop\detail.php on line 188.
+ 1 APPPATH\Views\Shop\detail.php(188): number_format(null, 1)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\nyobaUAS\\app\\Views\\Shop\\detail.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('Shop/detail', [], true)
+ 5 APPPATH\Controllers\Shop.php(109): view('Shop/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Shop->detail('construction-safety-gloves')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Shop))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\nyobaUAS\\public\\index.php')
+WARNING - 2025-11-26 05:43:35 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\Shop\detail.php on line 139.
+ 1 APPPATH\Views\Shop\detail.php(139): number_format(null, 1)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\nyobaUAS\\app\\Views\\Shop\\detail.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('Shop/detail', [], true)
+ 5 APPPATH\Controllers\Shop.php(109): view('Shop/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Shop->detail('safety-helmet-set')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Shop))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\nyobaUAS\\public\\index.php')
+WARNING - 2025-11-26 05:43:35 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\Shop\detail.php on line 188.
+ 1 APPPATH\Views\Shop\detail.php(188): number_format(null, 1)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\nyobaUAS\\app\\Views\\Shop\\detail.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('Shop/detail', [], true)
+ 5 APPPATH\Controllers\Shop.php(109): view('Shop/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Shop->detail('safety-helmet-set')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Shop))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\nyobaUAS\\public\\index.php')
+DEBUG - 2025-11-26 05:43:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-26 05:43:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+>>>>>>> 887804909400eed95ed9bc49ece2b619b143ab93

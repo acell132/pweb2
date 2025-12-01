@@ -103,9 +103,12 @@
       background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
       padding:14px 80px;border-radius:8px;
     }
-    .filters .left{display:flex;gap:10px;align-items:center}
+    .filters .left{display:flex;gap:10px;align-items:center;}
     .select{
       background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:#fff;
+    }
+    .select option{
+      color: #222;
     }
 
     /* promo */
@@ -185,7 +188,7 @@
   
 
   </style>
-</head>
+
 <body>
 
 <?= $this->include('Layout/header');?>
@@ -198,8 +201,8 @@
       <div class="content">
         <h1>Premium Construction Materials</h1>
         <p>Build your dreams with quality materials from trusted suppliers</p>
-        <a href="#filters">
-          <button class="btn-primary">Shop Now</button>
+        <a href="/my-orders">
+          <button class="btn-primary">My Order</button>
         </a>
       </div>
     </section>

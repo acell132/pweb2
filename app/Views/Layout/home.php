@@ -162,7 +162,7 @@
 
     /* Tombol */
     header.hero .btn-primary {
-      margin-left: 200px;
+      margin-left: 210px;
     }
 
     header.hero .btn-primary,
@@ -434,7 +434,65 @@
       font-size: 12px;
       color: #AAA;
     }
+    /* USER DROPDOWN */
+    .user-box {
+      background: #F7C600;
+      color: #2D2F36;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      position: relative;
+      transition: 0.3s;
+    }
 
+    .user-box i {
+      font-size: 18px;
+    }
+
+    /* Dropdown container */
+    .user-dropdown {
+      position: absolute;
+      top: 55px;
+      right: 0;
+      background: #3B4A55;
+      width: 180px;
+      border-radius: 8px;
+      padding: 10px 0;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      display: none;
+      flex-direction: column;
+      z-index: 999;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .user-dropdown a {
+      padding: 12px 18px;
+      color: #EEE;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.25s;
+    }
+
+    .user-dropdown a:hover {
+      background: #505358;
+      color: #F7C600;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Tampilkan dropdown saat hover */
+    .user-wrapper:hover .user-dropdown {
+      display: flex;
+    }
     /* Icon fonts (for simplicity I use emojis) */
   </style>
 </head>
@@ -450,14 +508,36 @@
       </div>
 
       <div class="buttons">
-        <button onclick="window.location.href='<?= base_url('login'); ?>'">
-        <i class="fa-solid fa-user"></i>  
-        Login</button>
-       <button class="signup" onclick="window.location.href='<?= base_url('register'); ?>'">
-          Register
-       </button>
+          <?php if (empty($user['user_id'])) : ?>
+              <button onclick="window.location.href='<?= base_url('login'); ?>'">
+                  <i class="fa-solid fa-user"></i> Login
+              </button>
+              <button class="signup" onclick="window.location.href='<?= base_url('register'); ?>'">
+                  Register
+              </button>
+
+          <?php else : ?>
+          <div class="user-wrapper">
+            <div class="user-box">
+              <i class="fa-solid fa-user-circle"></i>
+              <?= esc($user['full_name']); ?>
+              <i class="fa-solid fa-caret-down"></i>
+            </div>
+
+            <div class="user-dropdown">
+                <a href="<?= base_url('my-orders'); ?>">
+                  <i class="fa-solid fa-box"></i> Pesanan Saya
+                </a>
+
+                <a href="<?= base_url('logout'); ?>">
+                  <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+            </div>
+          </div>
+          <?php endif; ?>
 
       </div>
+
     </nav>
 
     <!-- HEADER (Hero Section) -->
@@ -467,8 +547,15 @@
         <h1>Solusi Lengkap <span class="highlight">Konstruksi</span> Anda</h1>
         <p>Kami menyediakan bahan bangunan berkualitas, jasa konstruksi profesional, dan peralatan kerja terlengkap untuk mewujudkan proyek impian Anda dengan standar terbaik.</p>
 
-        <button class="btn-primary"><i class="fa-solid fa-phone"></i>  Konsultasi Gratis</button>
-        <button class="btn-secondary"><i class="fa-solid fa-play"></i>  Lihat Portfolio</button>
+        <a 
+          href="https://wa.me/6288238267981?text=Halo%20saya%20ingin%20konsultasi%20terkait%20konstruksi" 
+          target="_blank" 
+          class="btn-primary"
+        >
+          <i class="fa-solid fa-phone"></i> Konsultasi Gratis
+        </a>
+
+        <!-- <button class="btn-secondary"><i class="fa-solid fa-play"></i>  Lihat Portfolio</button> -->
       </div>
     </header>
 
@@ -549,7 +636,7 @@
       <div class="constractionzone">
         <h1>CONSTRUCTION ZONE</h1>
         <p>Area Kerja Profesional • Keselamatan Utama</p>
-        <button class="btn-primary"><i class="fa-solid fa-hard-hat"></i> Lihat Proyek Aktif</button>
+        <!-- <button class="btn-primary"><i class="fa-solid fa-hard-hat"></i> Lihat Proyek Aktif</button> -->
       </div>
 
     </section>
@@ -560,14 +647,14 @@
     <div class="footer-menu">
 
       <div class="footer-links">
-        <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="<?= base_url('/home'); ?>"><i class="fa-solid fa-house"></i> Home</a>
 
-        <a href="#" class="build">
+        <a href="<?= base_url('/build'); ?>" class="build">
           <i class="fa-solid fa-hammer"></i> Build
         </a>
 
-        <a href="#"><i class="fa-solid fa-shop"></i> Shop</a>
-        <a href="#"><i class="fa-solid fa-phone"></i> Contact</a>
+        <a href="<?= base_url('/shop'); ?>"><i class="fa-solid fa-shop"></i> Shop</a>
+        <a href="<?= base_url('/contact'); ?>"><i class="fa-solid fa-phone"></i> Contact</a>
       </div>
         <footer>
           <img src="<?= base_url('assets/img/logo.svg'); ?>" alt="Logo" class="logo" />

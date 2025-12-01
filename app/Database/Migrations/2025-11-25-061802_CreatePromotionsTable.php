@@ -31,17 +31,17 @@ class CreatePromotionsTable extends Migration
             ],
             'discount_value' => [
                 'type'       => 'DECIMAL',
-                'constraint' => '10,2',
+                'constraint' => '20,2',
                 'default'    => 0.00
             ],
             'min_purchase' => [
                 'type'       => 'DECIMAL',
-                'constraint' => '10,2',
+                'constraint' => '20,2',
                 'default'    => 0.00
             ],
             'max_discount' => [
                 'type'       => 'DECIMAL',
-                'constraint' => '10,2',
+                'constraint' => '20,2',
                 'null'       => true
             ],
             'start_date' => [

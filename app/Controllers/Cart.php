@@ -34,9 +34,7 @@ class Cart extends BaseController
         return $cartId;
     }
 
-    // ==================================================
     // TAMPILKAN CART
-    // ==================================================
     public function index()
     {
         $cartId = $this->getUserCartId();
@@ -76,9 +74,7 @@ class Cart extends BaseController
         ]);
     }
 
-    // ==================================================
     // ADD TO CART
-    // ==================================================
     public function add($productId)
     {
         $product = $this->product->find($productId);
@@ -106,9 +102,7 @@ class Cart extends BaseController
         return redirect()->to('/cart');
     }
 
-    // ==================================================
     // REMOVE ITEM
-    // ==================================================
     public function remove($productId)
     {
         $cartId = $this->getUserCartId();
@@ -118,9 +112,7 @@ class Cart extends BaseController
         return redirect()->to('/cart');
     }
 
-    // ==================================================
     // CLEAR CART
-    // ==================================================
     public function clear()
     {
         $cartId = $this->getUserCartId();
@@ -128,9 +120,7 @@ class Cart extends BaseController
         return redirect()->to('/cart');
     }
 
-    // ==================================================
     // INCREASE QTY
-    // ==================================================
     public function increase($productId)
     {
         $cartId = $this->getUserCartId();
@@ -143,9 +133,7 @@ class Cart extends BaseController
         return redirect()->to('/cart');
     }
 
-    // ==================================================
     // DECREASE QTY
-    // ==================================================
     public function decrease($productId)
     {
         $cartId = $this->getUserCartId();
@@ -155,4 +143,53 @@ class Cart extends BaseController
         }
         return redirect()->to('/cart');
     }
+
+    public function checkout()
+    {
+        if ($this->request->isAJAX()) {
+            $userId = session()->get('user_id');
+            $data = $this->request->getJSON();
+
+            $address = $data->address;
+            $total = $data->total;
+
+            $cartId = $this->getUserCartId();
+            $items = $this->cartItemModel->where('cart_id', $cartId)->findAll();
+
+            if (!$items) {
+                return $this->response->setJSON(['success' => false, 'message' => 'Cart is empty']);
+            }
+
+            $orderModel = new \App\Models\OrderModel();
+            $orderId = $orderModel->insert([
+                'user_id' => $userId,
+                'total' => $total,
+                'order_date' => date('Y-m-d'),
+                'address' => $address,
+            ], true);
+
+            $orderItemModel = new \App\Models\OrderItemModel();
+            foreach ($items as $item) {
+                $orderItemModel->insert([
+                    'order_id' => $orderId,
+                    'product_id' => $item['product_id'],
+                    'quantity' => $item['quantity'],
+                    'unit_price' => $item['unit_price'],
+                ]);
+                $product = $this->product->find($item['product_id']);
+
+                if ($product) {
+                    $newStock = max(0, $product['stock'] - $item['quantity']); // Pastikan tidak minus
+                    $this->product->update($item['product_id'], ['stock' => $newStock]);
+                }
+            }
+
+            // Hapus cart
+            $this->cartItemModel->where('cart_id', $cartId)->delete();
+
+            return $this->response->setJSON(['success' => true]);
+        }
+    }
+
+
 }

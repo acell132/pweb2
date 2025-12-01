@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <style>
     *{ margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; }
@@ -70,7 +71,7 @@
 <nav>
     <div class="left">
         <img src="<?= base_url('assets/img/logo.svg'); ?>" alt="Logo"/>
-        <span>Bangun Bangsa</span>
+        <span style="font-weight: 900; font-size: 20px;">Bangun Bangsa</span>
     </div>
 
     <ul>
