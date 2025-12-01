@@ -1423,3 +1423,50 @@ DEBUG - 2025-11-26 03:25:03 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2025-11-26 03:25:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-11-26 03:25:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-11-26 03:25:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-26 05:42:54 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'construction' in C:\laragon\www\pweb2\system\Database\MySQLi\Connection.php:202
+Stack trace:
+#0 C:\laragon\www\pweb2\system\Database\MySQLi\Connection.php(202): mysqli->real_connect('localhost', 'root', '', 'construction', 3306, '', 0)
+#1 C:\laragon\www\pweb2\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\laragon\www\pweb2\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\laragon\www\pweb2\system\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#4 C:\laragon\www\pweb2\system\Model.php(925): CodeIgniter\Database\BaseBuilder->countAll()
+#5 C:\laragon\www\pweb2\app\Controllers\Shop.php(22): CodeIgniter\Model->__call('countAll', Array)
+#6 C:\laragon\www\pweb2\system\CodeIgniter.php(933): App\Controllers\Shop->index()
+#7 C:\laragon\www\pweb2\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Shop))
+#8 C:\laragon\www\pweb2\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\pweb2\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\laragon\www\pweb2\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\laragon\www\pweb2\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\laragon\www\pweb2\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'construction' in C:\laragon\www\pweb2\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\laragon\www\pweb2\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\laragon\www\pweb2\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\laragon\www\pweb2\system\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', NULL, false)
+#3 C:\laragon\www\pweb2\system\Model.php(925): CodeIgniter\Database\BaseBuilder->countAll()
+#4 C:\laragon\www\pweb2\app\Controllers\Shop.php(22): CodeIgniter\Model->__call('countAll', Array)
+#5 C:\laragon\www\pweb2\system\CodeIgniter.php(933): App\Controllers\Shop->index()
+#6 C:\laragon\www\pweb2\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Shop))
+#7 C:\laragon\www\pweb2\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\pweb2\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\laragon\www\pweb2\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\laragon\www\pweb2\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\laragon\www\pweb2\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#12 {main}
+CRITICAL - 2025-11-26 05:42:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'construction'
+[Method: GET, Route: shop]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1678): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows` FROM `products`', null, false)
+ 3 SYSTEMPATH\Model.php(925): CodeIgniter\Database\BaseBuilder->countAll()
+ 4 APPPATH\Controllers\Shop.php(22): CodeIgniter\Model->__call('countAll', [])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Shop->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Shop))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\pweb2\\public\\index.php')
